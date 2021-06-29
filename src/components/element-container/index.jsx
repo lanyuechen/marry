@@ -10,11 +10,13 @@ export default (props) => {
   useEffect(() => {
     anime({
       targets: ref.current,
-      left: position[0],
-      top: position[1],
+      duration: 1000,
+      delay: 0,
+      translateX: position[0],
+      translateY: position[1],
       width: position[2],
       height: position[3],
-      rotate: `${rotation}deg`,
+      rotate: rotation,
     });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

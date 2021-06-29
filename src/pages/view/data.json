@@ -8,9 +8,25 @@
       "components": [
         {
           "type": "image",
-          "src": "./xxx.jpg",
-          "position": [100, 100, 200, 200],
-          "rotation": 45,
+          "props": {
+            "src": "./logo.jpg"
+          },
+          "position": [100, 100, 50, 50],
+          "rotation": 0,
+          "animationIn": {
+  
+          },
+          "animationOut": {
+  
+          }
+        },
+        {
+          "type": "text",
+          "props": {
+            "value": "文本文本文本"
+          },
+          "position": [50, 300, 100, 100],
+          "rotation": 0,
           "animationIn": {
   
           },
@@ -25,9 +41,11 @@
       "components": [
         {
           "type": "image",
-          "src": "./xxx.jpg",
+          "props": {
+            "src": "./logo.jpg"
+          },
           "position": [200, 100, 200, 200],
-          "rotation": -45
+          "rotation": 0
         }
       ]
     }

@@ -1,11 +1,11 @@
 import React from 'react';
 
+import './style.css';
+
 export default (props) => {
   const { src } = props;
 
   return (
-    <div>
-      <img src={src} alt="img" />
-    </div>
+    <img className="element-image" src={src} alt="img" />
   );
 }
