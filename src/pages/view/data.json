@@ -1,0 +1,30 @@
+[
+  {
+    "background": "#fff",
+    "components": [
+      {
+        "type": "image",
+        "src": "./xxx.jpg",
+        "position": [100, 100, 200, 200],
+        "rotation": 45,
+        "animationIn": {
+
+        },
+        "animationOut": {
+
+        }
+      }
+    ]
+  },
+  {
+    "background": "#fdfdfd",
+    "components": [
+      {
+        "type": "image",
+        "src": "./xxx.jpg",
+        "position": [200, 100, 200, 200],
+        "rotation": -45
+      }
+    ]
+  }
+]
