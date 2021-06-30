@@ -5,7 +5,7 @@
   "pages": [
     {
       "background": "#fff",
-      "components": [
+      "elements": [
         {
           "type": "image",
           "props": {
@@ -45,7 +45,7 @@
     },
     {
       "background": "#fdfdfd",
-      "components": [
+      "elements": [
         {
           "type": "image",
           "props": {

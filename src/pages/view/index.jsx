@@ -43,7 +43,7 @@ export default (props) => {
         {data.pages.map((page, pageIdx) => (
           <SwiperSlide key={page.id}>
             <PageContainer background={page.background}>
-              {page.components && page.components.map((element, elementIdx) => {
+              {page.elements && page.elements.map((element, elementIdx) => {
                 const C = elements[element.type];
                 return (
                   <ElementContainer
