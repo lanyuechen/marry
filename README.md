@@ -6,6 +6,7 @@
 [lena.js](https://github.com/davidsonfellipe/lena.js) 用于给图片添加滤镜
 [cropperjs](https://github.com/fengyuanchen/cropperjs) 用于图片裁切
 [fabric.js](https://github.com/fabricjs/fabric.js) 用于图形编辑
+[diaporama](https://github.com/gre/diaporama) 图像/视频/内容幻灯片引擎
 
 ## 视图配置（View）
 
