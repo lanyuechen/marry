@@ -1,9 +1,13 @@
 import React from 'react';
 
-export default () => {
+export default (props) => {
+  const { src } = props;
+
+  return null;
+  
   return (
     <div>
-      <audio />
+      <audio src={src} controls />
     </div>
   )
 }

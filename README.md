@@ -1,3 +1,12 @@
+## 可能使用到的技术
+
+[pica](https://github.com/nodeca/pica) 用于图片压缩
+[compressorjs](https://github.com/fengyuanchen/compressorjs) 用于图片压缩
+[grade](https://github.com/benhowdle89/grade) 用于通过图片的主色调生成背景色
+[lena.js](https://github.com/davidsonfellipe/lena.js) 用于给图片添加滤镜
+[cropperjs](https://github.com/fengyuanchen/cropperjs) 用于图片裁切
+[fabric.js](https://github.com/fabricjs/fabric.js) 用于图形编辑
+
 ## 视图配置（View）
 
 | 属性 | 类型 | 描述 | 默认值 |
