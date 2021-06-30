@@ -4,6 +4,8 @@ export default {
   history: {
     type: 'hash'
   },
+  publicPath: '/marry/',
+  base: '/marry/',
   routes: [
     {
       path: '/',
