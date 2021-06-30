@@ -49,6 +49,7 @@ export default (props) => {
                   <ElementContainer
                     key={elementIdx} 
                     position={element.position}
+                    size={element.size}
                     rotation={element.rotation}
                     entrance={currentIdx === pageIdx}
                     animation={element.animation}
