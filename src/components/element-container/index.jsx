@@ -31,7 +31,13 @@ export default (props) => {
           keyframes,
         });
       } else {
-        store.current.restart();
+        store.current.reverse();
+        store.current.play();
+      }
+    } else {
+      if (store.current) {
+        store.current.reverse();
+        store.current.play();
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps

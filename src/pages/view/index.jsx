@@ -36,7 +36,7 @@ export default (props) => {
     <>
       <Audio {...data.audio} />
       <Swiper
-        direction="horizontal"
+        direction="vertical"
         effect="slide"
         onSlideChange={(swiper) => setCurrentIdx(swiper.activeIndex)}
       >
