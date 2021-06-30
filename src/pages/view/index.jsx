@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import 'swiper/swiper-bundle.css';
-
 import PageContainer from '@/components/page-container';
 import ElementContainer from '@/components/element-container';
 import Audio from '@/components/audio';
@@ -38,7 +36,7 @@ export default (props) => {
     <>
       <Audio {...data.audio} />
       <Swiper
-        direction="vertical"
+        direction="horizontal"
         effect="slide"
         onSlideChange={(swiper) => setCurrentIdx(swiper.activeIndex)}
       >
