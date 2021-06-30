@@ -9,23 +9,28 @@
         {
           "type": "image",
           "props": {
-            "src": "./logo.jpg"
+            "src": "./logox.jpg"
           },
-          "position": [20, 20],
-          "size": [100, 100],
+          "position": [100, 100],
+          "size": [50, 50],
           "rotation": 0,
           "animation": {
             "duration": 1000,
             "delay": 0,
-            "type": "slideInLeft"
+            "keyframes": [
+              {
+                "translateX": -50,
+                "translateY": 50
+              }
+            ]
           }
         },
         {
           "type": "text",
           "props": {
-            "value": "这是狗"
+            "value": "文本文本文本"
           },
-          "position": [140, 60],
+          "position": [50, 300],
           "size": [100, 100],
           "rotation": 0,
           "animation": {
@@ -41,7 +46,7 @@
         {
           "type": "image",
           "props": {
-            "src": "./logo.jpg"
+            "src": "./logox.jpg"
           },
           "position": [200, 100],
           "size": [200, 200],
