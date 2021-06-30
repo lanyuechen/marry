@@ -32,6 +32,33 @@
             "duration": 1000,
             "type": "slideInRight"
           }
+        },
+        {
+          "type": "image",
+          "props": {
+            "src": "./logo.jpg"
+          },
+          "position": [20, 140],
+          "size": [300, 300],
+          "rotation": 0,
+          "animation": {
+            "duration": 1000,
+            "delay": 0,
+            "type": "slideInBottom"
+          }
+        },
+        {
+          "type": "text",
+          "props": {
+            "value": "这也是狗"
+          },
+          "position": [100, 460],
+          "size": [100, 100],
+          "rotation": 0,
+          "animation": {
+            "duration": 1000,
+            "type": "slideInLeft"
+          }
         }
       ]
     },
