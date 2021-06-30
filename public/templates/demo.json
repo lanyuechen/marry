@@ -1,0 +1,62 @@
+{
+  "audio": {
+    "src": ""
+  },
+  "pages": [
+    {
+      "background": "#fff",
+      "components": [
+        {
+          "type": "image",
+          "props": {
+            "src": "./logox.jpg"
+          },
+          "position": [100, 100, 50, 50],
+          "rotation": 0,
+          "animation": {
+            "duration": 1000,
+            "keyframes": [
+              {
+                "translateX": -50,
+                "translateY": 50
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "props": {
+            "value": "文本文本文本"
+          },
+          "position": [50, 300, 100, 100],
+          "rotation": 0,
+          "animation": {
+            "duration": 1000,
+            "keyframes": [
+              {
+                "translateX": 50,
+                "translateY": -100
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "background": "#fdfdfd",
+      "components": [
+        {
+          "type": "image",
+          "props": {
+            "src": "./logox.jpg"
+          },
+          "position": [200, 100, 200, 200],
+          "rotation": 0,
+          "animation": {
+            "duration": 1000
+          }
+        }
+      ]
+    }
+  ]
+}

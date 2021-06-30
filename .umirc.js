@@ -14,7 +14,7 @@ export default {
           component: '../pages/index',
         },
         {
-          path: '/view',
+          path: '/view/:id',
           component: '../pages/view',
         }
       ]

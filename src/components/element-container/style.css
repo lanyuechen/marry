@@ -1,3 +1,4 @@
 .element-container {
   position: absolute;
+  overflow: hidden;
 }
