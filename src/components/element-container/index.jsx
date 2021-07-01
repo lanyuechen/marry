@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import anime from 'animejs/lib/anime.es.js';
 
 import { getKeyframes, getInitState } from '@/utils/utils';
+import ClipPath from '@/components/clip-path';
 
 import './style.css';
 
@@ -9,6 +10,7 @@ export default (props) => {
   const {
     position = [0, 0],
     size = [100, 100],
+    clip,
     entrance,
     animation = {},
     children
@@ -47,9 +49,13 @@ export default (props) => {
     <div
       ref={ref}
       className="element-container"
-      style={initState}
+      style={{
+        ...initState,
+        clipPath: clip && clip.id,
+      }}
     >
       {children}
+      {clip && <ClipPath id="clip-path" path={clip.path} size={size} />}
     </div>
   )
 }

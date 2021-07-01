@@ -3,7 +3,7 @@
  * @param {string|number} value 被转换的数值
  * @param {number} base 基础值，宽度计算为window.innerWidth；高度计算为window.innerHeight
  */
-const normalize = (value, base) => {
+export const normalize = (value, base) => {
   if (!value || typeof value === 'number') {
     return value;
   } else if (/px$/.test(value)) {

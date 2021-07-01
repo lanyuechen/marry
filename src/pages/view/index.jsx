@@ -49,10 +49,11 @@ export default (props) => {
                 return (
                   <ElementContainer
                     key={elementIdx} 
+                    entrance={currentIdx === pageIdx}
                     position={element.position}
                     size={element.size}
                     rotation={element.rotation}
-                    entrance={currentIdx === pageIdx}
+                    clip={element.clip}
                     animation={element.animation}
                   >
                     <C {...element.props} />
