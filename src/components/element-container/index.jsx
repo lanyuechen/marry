@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import anime from 'animejs/lib/anime.es.js';
 
-import { getKeyframes, getInitState } from '@/utils/utils';
+import { getKeyframes, getInitState } from '@/utils/prepare';
 import ClipPath from '@/components/clip-path';
 
 import './style.css';
@@ -51,11 +51,11 @@ export default (props) => {
       className="element-container"
       style={{
         ...initState,
-        clipPath: clip && clip.id,
+        clipPath: clip && `url(#${clip.id})`,
       }}
     >
       {children}
-      {clip && <ClipPath id="clip-path" path={clip.path} size={size} />}
+      {clip && <ClipPath id={clip.id} path={clip.path} size={size} />}
     </div>
   )
 }

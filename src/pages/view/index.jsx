@@ -5,26 +5,18 @@ import PageContainer from '@/components/page-container';
 import ElementContainer from '@/components/element-container';
 import Audio from '@/components/audio';
 import elements from '@/components/elements';
+import prepare from '@/utils/prepare';
 
 import * as service from '@/services';
 
 export default (props) => {
   const { id } = props.match.params;
   const [ currentIdx, setCurrentIdx ] = useState(0);
-  const [ pending, setPending ] = useState(false);
   const [ data, setData ] = useState();
 
   useEffect(() => {
-    setPending(true);
     service.getTemplate(id).then(res => {
-      setPending(false);
-      setData({
-        ...res,
-        pages: res.pages.map((d, i) => ({
-          ...d,
-          id: i
-        })),
-      });
+      setData(prepare(res));
     });
   }, [id]);
 
@@ -36,8 +28,8 @@ export default (props) => {
     <>
       <Audio {...data.audio} />
       <Swiper
-        direction="vertical"
-        effect="slide"
+        direction={data.transition.direction}
+        effect={data.transition.effect}
         // onSlideChange={(swiper) => setCurrentIdx(swiper.activeIndex)}
         onSlideChangeTransitionEnd={(swiper) => setCurrentIdx(swiper.activeIndex)}
       >

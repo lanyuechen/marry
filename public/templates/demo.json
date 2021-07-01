@@ -2,6 +2,10 @@
   "audio": {
     "src": "./demo.mp3"
   },
+  "transition": {
+    "direction": "horizontal",
+    "effect": "slide"
+  },
   "pages": [
     {
       "background": "#ddd",
@@ -39,13 +43,62 @@
     {
       "background": "#eee",
       "elements": [
-        
+        {
+          "type": "image",
+          "props": {
+            "src": "./images/animals/3.jpg"
+          },
+          "position": [0, 0],
+          "size": ["100%", "30%"],
+          "animation": {
+            "duration": 1000,
+            "type": "slideInLeft"
+          }
+        },
+        {
+          "type": "image",
+          "props": {
+            "src": "./images/animals/4.jpg"
+          },
+          "position": [0, "30%"],
+          "size": ["100%", "40%"],
+          "animation": {
+            "duration": 1000,
+            "delay": 300,
+            "type": "slideInLeft"
+          }
+        },
+        {
+          "type": "image",
+          "props": {
+            "src": "./images/animals/5.jpg"
+          },
+          "position": [0, "70%"],
+          "size": ["100%", "30%"],
+          "animation": {
+            "duration": 1000,
+            "delay": 600,
+            "type": "slideInLeft"
+          }
+        }
       ]
     },
     {
       "background": "#eee",
       "elements": [
-        
+        {
+          "type": "image",
+          "props": {
+            "src": "./images/animals/6.jpg"
+          },
+          "position": [0, 0],
+          "size": ["100%", "100%"],
+          "animation": {
+            "duration": 1000,
+            "delay": 300,
+            "type": "slideInTop"
+          }
+        }
       ]
     }
   ]
