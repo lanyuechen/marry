@@ -38,7 +38,8 @@ export default (props) => {
       <Swiper
         direction="vertical"
         effect="slide"
-        onSlideChange={(swiper) => setCurrentIdx(swiper.activeIndex)}
+        // onSlideChange={(swiper) => setCurrentIdx(swiper.activeIndex)}
+        onSlideChangeTransitionEnd={(swiper) => setCurrentIdx(swiper.activeIndex)}
       >
         {data.pages.map((page, pageIdx) => (
           <SwiperSlide key={page.id}>
