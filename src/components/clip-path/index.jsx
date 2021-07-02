@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
 export default (props) => {
-  const { id, path, size, viewBox = "0 0 1024 1024" } = props;
+  const { id, path, scale, size, viewBox = "0 0 1024 1024" } = props;
 
   const transform = useMemo(() => {
     const width = size[0];
@@ -11,17 +11,17 @@ export default (props) => {
 
     let fitWidth, fitHeight;
     if (aspect > width / height) {
-      fitWidth = width;
-      fitHeight = width / aspect;
+      fitWidth = width * scale;
+      fitHeight = fitWidth / aspect;
     } else {
-      fitHeight = height;
-      fitWidth = height * aspect;
+      fitHeight = height * scale;
+      fitWidth = fitHeight * aspect;
     }
     const left = (width - fitWidth) / 2;
     const top = (height - fitHeight) / 2;
-    const scale = fitWidth / vb[2];
+    const s = fitWidth / vb[2];
 
-    return `translate(${left}, ${top}) scale(${scale})`;
+    return `translate(${left}, ${top}) scale(${s})`;
   }, []);
 
   return (

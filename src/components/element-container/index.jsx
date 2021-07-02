@@ -1,15 +1,16 @@
 import React, { useRef, useEffect } from 'react';
 import anime from 'animejs/lib/anime.es.js';
 
-import { getKeyframes, getInitState } from '@/utils/prepare';
+import { prepareKeyframes, prepareInitState } from '@/utils/prepare';
 import ClipPath from '@/components/clip-path';
 
 import './style.css';
 
 export default (props) => {
   const {
-    position = [0, 0],
-    size = [100, 100],
+    position,
+    size,
+    rotation,
     clip,
     entrance,
     animation = {},
@@ -19,8 +20,8 @@ export default (props) => {
   const ref = useRef();
   const store = useRef();
 
-  const [ firstKeyFrame, ...keyframes ] = getKeyframes(animation, { position, size });
-  const initState = getInitState(firstKeyFrame);  // 元素初始状态
+  const [ firstKeyFrame, ...keyframes ] = prepareKeyframes(animation, { position, size, rotation });
+  const initState = prepareInitState(firstKeyFrame);  // 元素初始状态
 
   useEffect(() => {
     if (entrance) { // 入场
@@ -55,7 +56,7 @@ export default (props) => {
       }}
     >
       {children}
-      {clip && <ClipPath id={clip.id} path={clip.path} size={size} />}
+      {clip && <ClipPath {...clip} size={size} />}
     </div>
   )
 }

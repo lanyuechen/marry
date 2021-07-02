@@ -36,10 +36,19 @@
 | position | array[x, y] | 组件大小 | [0, 0] |
 | size | array[width, height] | 组件大小 | [100, 100] |
 | rotation | number | 组件旋转角度 | 0 |
+| clip | [Clip](#元素裁剪配置（Clip）) | 元素裁剪 | - |
 | props | [Prop](#元素组件配置（Prop）) | 组件属性，其具体结构根据type不同而不同 | - |
 | animation | [Animation](#动画配置（Animation）) | 动画属性 | - |
 
-### 元素组件配置（Prop）
+## 元素裁剪配置（Clip）
+
+| 属性 | 类型 | 描述 | 默认值 |
+| ---- | ---- | ---- | ---- |
+| id | string | clip-path的id | 系统自动生成 | 
+| path | string | path属性 | - |
+| scale | number | 缩放 | - |
+
+## 元素组件配置（Prop）
 
 | type值 | 属性 | 类型 | 描述 | 默认值 |
 | ---- | ---- | ---- | ---- | ---- |

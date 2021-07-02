@@ -1,5 +1,7 @@
 import { uuid } from '@/utils/utils';
 
+import CLIP from '@/constants/clip';
+
 export default (data) => {
 
   return {
@@ -20,13 +22,31 @@ export const prepareElement = (element) => {
   return {
     ...element,
     position: [
-      normalize(element.position[0], window.innerWidth),
-      normalize(element.position[1], window.innerHeight),
+      prepareUnit(element.position[0], window.innerWidth),
+      prepareUnit(element.position[1], window.innerHeight),
     ],
     size: [
-      normalize(element.size[0], window.innerWidth),
-      normalize(element.size[1], window.innerHeight),
+      prepareUnit(element.size[0], window.innerWidth),
+      prepareUnit(element.size[1], window.innerHeight),
     ],
+    clip: prepareClip(element.clip),
+  }
+}
+
+export const prepareClip = (clip) => {
+  if (!clip) {
+    return;
+  }
+  if (typeof clip === 'string') {
+    return CLIP[clip] && {
+      id: uuid(),
+      path: CLIP[clip],
+    };
+  }
+  return {
+    ...clip,
+    id: uuid(),
+    path: CLIP[clip.path] || clip.path,
   }
 }
 
@@ -35,7 +55,7 @@ export const prepareElement = (element) => {
  * @param {string|number} value 被转换的数值
  * @param {number} base 基础值，宽度计算为window.innerWidth；高度计算为window.innerHeight
  */
-export const normalize = (value, base) => {
+export const prepareUnit = (value, base) => {
   if (!value || typeof value === 'number') {
     return value;
   } else if (/px$/.test(value)) {
@@ -47,10 +67,10 @@ export const normalize = (value, base) => {
   }
 }
 
-export const getKeyframes = (animation, target) => {
-  const { position, size } = target;
-  const width = normalize(size[0], window.innerWidth);
-  const height = normalize(size[1], window.innerHeight);
+export const prepareKeyframes = (animation, target) => {
+  const { position, size, rotation } = target;
+  const width = prepareUnit(size[0], window.innerWidth);
+  const height = prepareUnit(size[1], window.innerHeight);
   const dMap = {
     slideInLeft: { // 左侧滑入
       translateX: -width,
@@ -103,6 +123,7 @@ export const getKeyframes = (animation, target) => {
   keyframes.push({
     translateX: position[0],
     translateY: position[1],
+    rotate: rotation,
     width: size[0],
     height: size[1],
   })
@@ -110,13 +131,13 @@ export const getKeyframes = (animation, target) => {
   return keyframes;
 }
 
-export const getInitState = (attrs) => {
+export const prepareInitState = (attrs) => {
   if (!attrs) {
     return;
   }
-  const { translateX = 0, translateY = 0, ...others } = attrs;
+  const { translateX = 0, translateY = 0, rotate = 0, ...others } = attrs;
   return {
     ...others,
-    transform: `translateX(${translateX}px) translateY(${translateY}px)`,
+    transform: `translateX(${translateX}px) translateY(${translateY}px) rotate(${rotate})`,
   };
 }
