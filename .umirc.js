@@ -22,6 +22,10 @@ export default {
         {
           path: '/editor/:id',
           component: '../pages/editor',
+        },
+        {
+          path: 'admin/editor/:id',
+          component: '../pages/admin/editor',
         }
       ]
     },

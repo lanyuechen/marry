@@ -74,7 +74,7 @@ export default (props) => {
                     animation={element.animation}
                   >
                     <C {...element.props} />
-                    <EditorBtn />
+                    <EditorBtn onClick={() => showPropDrawer(elementIdx)} />
                   </ElementContainer>
                 );
               })}
