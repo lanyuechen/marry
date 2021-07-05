@@ -6,6 +6,10 @@ export default (data) => {
 
   return {
     ...data,
+    transition: data.transition || {
+      direction: 'vertical',
+      effect: 'slide'
+    },
     pages: data.pages.map(preparePage),
   }
 }

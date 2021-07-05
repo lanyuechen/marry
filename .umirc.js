@@ -18,8 +18,13 @@ export default {
         {
           path: '/view/:id',
           component: '../pages/view',
+        },
+        {
+          path: '/editor/:id',
+          component: '../pages/editor',
         }
       ]
     },
   ],
+  antd: {}
 }
