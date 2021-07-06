@@ -7,3 +7,11 @@ export function uuid() {
   seed = seed.replace('y', (Math.random() * 16 & 0x3 | 0x8).toString(16));
   return seed.replace(/-/g, '').substr(0, 24);
 }
+
+export function fileToDataUrl(file) {
+  return new Promise(resolve => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file.originFileObj);
+    reader.onload = () => resolve(reader.result);
+  });
+};

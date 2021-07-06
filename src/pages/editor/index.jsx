@@ -74,7 +74,9 @@ export default (props) => {
                     animation={element.animation}
                   >
                     <C {...element.props} />
-                    <EditorBtn />
+                    <EditorBtn 
+                      onChange={(src) => handleChange(['pages', pageIdx, 'elements', elementIdx, 'props', 'src'], {$set: src})}
+                    />
                   </ElementContainer>
                 );
               })}

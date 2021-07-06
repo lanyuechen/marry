@@ -1,36 +1,23 @@
 import React from 'react';
-import { Upload } from 'antd';
+import ImageUpload from '@/components/image-upload';
+import { fileToDataUrl } from '@/utils/utils';
 
 import './style.less';
 
 export default (props) => {
+  const { onChange } = props;
 
-  const onPreview = async (file) => {
-    let src = file.url;
-    if (!src) {
-      src = await new Promise(resolve => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file.originFileObj);
-        reader.onload = () => resolve(reader.result);
-      });
+  const handleChange = async ({ file }) => {
+    if (file.status === 'done') {
+      const dataUrl = await fileToDataUrl(file);
+      console.log('==========')
+      onChange(dataUrl);
     }
-    const image = new Image();
-    image.src = src;
-    const imgWindow = window.open(src);
-    imgWindow.document.write(image.outerHTML);
-  };
-
-  const onChange = () => {
-    
   }
-  
+
   return (
-    <Upload
-      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-      onChange={onChange}
-      onPreview={onPreview}
-    >
+    <ImageUpload onChange={handleChange}>
       <button className="editor-entry-btn icon icon-edit" {...props} />
-    </Upload>
+    </ImageUpload>
   )
 }
