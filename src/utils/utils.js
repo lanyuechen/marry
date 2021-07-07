@@ -11,7 +11,7 @@ export function uuid() {
 export function fileToDataUrl(file) {
   return new Promise(resolve => {
     const reader = new FileReader();
-    reader.readAsDataURL(file.originFileObj);
+    reader.readAsDataURL(file);
     reader.onload = () => resolve(reader.result);
   });
 };

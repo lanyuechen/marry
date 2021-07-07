@@ -9,7 +9,7 @@
         {
           "type": "image",
           "props": {
-            "value": "test"
+            "src": "./images/animals/1.jpg"
           },
           "position": [50, 300],
           "size": [100, 100],

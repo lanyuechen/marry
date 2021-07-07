@@ -46,6 +46,7 @@ export default (props) => {
   return (
     <>
       <PropDrawer
+        data={data}
         pageIdx={currentIdx}
         elementIdx={currentElementIdx}
         onChange={handleChange}
@@ -74,9 +75,7 @@ export default (props) => {
                     animation={element.animation}
                   >
                     <C {...element.props} />
-                    <EditorBtn 
-                      onChange={(src) => handleChange(['pages', pageIdx, 'elements', elementIdx, 'props', 'src'], {$set: src})}
-                    />
+                    <EditorBtn onClick={() => showPropDrawer(elementIdx)} />
                   </ElementContainer>
                 );
               })}
