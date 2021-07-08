@@ -31,6 +31,7 @@ export default (props) => {
         <ImageCrop
           src={element.props.src}
           aspect={element.size[0] / element.size[1]}
+          crop={element.props.crop}
           onChange={crop => handleElementChange('props.crop', crop)}
         />
       )}

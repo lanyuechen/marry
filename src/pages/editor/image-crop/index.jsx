@@ -1,14 +1,20 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Cropper from 'react-easy-crop';
 import { debounce } from '@/utils/utils';
 
 import './style.less';
 
 export default (props) => {
-  const { src, aspect, onChange } = props;
+  const { src, aspect, crop: cropDefault, onChange } = props;
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
   const [rotation, setRotation] = useState(0);
+
+  useEffect(() => {
+    setZoom(cropDefault.zoom);
+    setRotation(cropDefault.rotation);
+    
+  }, []);
 
   const onCropComplete = useMemo(() => {
     // croppedArea, croppedAreaPixels
