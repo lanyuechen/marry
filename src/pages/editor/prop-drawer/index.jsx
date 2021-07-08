@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Drawer, Input } from 'antd';
-import ImageEditor from '../image-editor';
+import ImageCrop from '../image-crop';
 
 export default (props) => {
   const { data, pageIdx, elementIdx, onChange, onClose } = props;
@@ -11,6 +11,7 @@ export default (props) => {
   }
 
   const handleElementChange = (key, value) => {
+    console.log('====', value)
     key = typeof key === 'string' ? key.split('.') : key;
     onChange(['pages', pageIdx, 'elements', elementIdx, ...key], {$set: value});
   }
@@ -18,8 +19,6 @@ export default (props) => {
   const element = useMemo(() => {
     return data.pages.find((p, idx) => idx === pageIdx)?.elements?.find((e, idx) => idx === elementIdx);
   }, [data, pageIdx, elementIdx]);
-
-  console.log('===', element)
 
   return (
     <Drawer
@@ -29,10 +28,16 @@ export default (props) => {
       onClose={onClose}
     >
       {element && (
-        <ImageEditor
+        <ImageCrop
           src={element.props.src}
           aspect={element.size[0] / element.size[1]}
+          onChange={crop => handleElementChange('props.crop', crop)}
         />
+      )}
+      {element && (
+        <div>
+          {JSON.stringify(element.props.crop)}
+        </div>
       )}
       <Input onChange={e => handleElementChange('props.value', e.target.value)} />
     </Drawer>
