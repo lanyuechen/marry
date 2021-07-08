@@ -11,9 +11,10 @@ export default (props) => {
   const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
-    setZoom(cropDefault.zoom);
-    setRotation(cropDefault.rotation);
-    
+    if (cropDefault) {
+      setZoom(cropDefault.zoom);
+      setRotation(cropDefault.rotation);
+    }
   }, []);
 
   const onCropComplete = useMemo(() => {
