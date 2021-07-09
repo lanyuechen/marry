@@ -35,11 +35,7 @@ export default (props) => {
           onChange={crop => handleElementChange('props.crop', crop)}
         />
       )}
-      {element && (
-        <div>
-          {JSON.stringify(element.props.crop)}
-        </div>
-      )}
+      
       <Input onChange={e => handleElementChange('props.value', e.target.value)} />
     </Drawer>
   )

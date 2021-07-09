@@ -74,7 +74,7 @@ export default (props) => {
                     clip={element.clip}
                     animation={element.animation}
                   >
-                    <C {...element.props} />
+                    <C {...element.props} size={element.size} />
                     <EditorBtn onClick={() => showPropDrawer(elementIdx)} />
                   </ElementContainer>
                 );

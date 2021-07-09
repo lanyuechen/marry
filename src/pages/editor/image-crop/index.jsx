@@ -19,9 +19,10 @@ export default (props) => {
 
   const onCropComplete = useMemo(() => {
     // croppedArea, croppedAreaPixels
-    return debounce((croppedArea, zoom, rotation) => {
+    return debounce((area, areaPixel, zoom, rotation) => {
       onChange({
-        ...croppedArea,
+        area,
+        areaPixel,
         zoom,
         rotation,
       });
@@ -36,10 +37,11 @@ export default (props) => {
         crop={crop}
         zoom={zoom}
         rotation={rotation}
+        initialCroppedAreaPixels={cropDefault && cropDefault.areaPixel}
         onCropChange={setCrop}
         onZoomChange={setZoom}
         onRotationChange={setRotation}
-        onCropComplete={(croppedArea) => onCropComplete(croppedArea, zoom, rotation)}
+        onCropComplete={(croppedArea, croppedAreaPixels) => onCropComplete(croppedArea, croppedAreaPixels, zoom, rotation)}
       />
     </div>
   );
