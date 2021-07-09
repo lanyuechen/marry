@@ -12,7 +12,7 @@
             "src": "./images/animals/1.jpg"
           },
           "position": [50, 300],
-          "size": [100, 100],
+          "size": [120, 100],
           "rotation": 0
         }
       ]
