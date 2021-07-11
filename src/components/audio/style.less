@@ -1,0 +1,26 @@
+.audio-container {
+  width: 36px;
+  height: 36px;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 10000;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2), inset 0 0 10px #fff;;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  .icon {
+    font-size: 21px;
+  }
+  .spin {
+    animation: spin 5s infinite linear;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

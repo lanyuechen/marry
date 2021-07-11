@@ -48,7 +48,7 @@ export default (props) => {
                     clip={element.clip}
                     animation={element.animation}
                   >
-                    <C {...element.props} />
+                    <C {...element.props} size={element.size} />
                   </ElementContainer>
                 );
               })}

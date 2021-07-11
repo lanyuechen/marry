@@ -2,6 +2,8 @@ import React, { useMemo } from 'react';
 import { Drawer, Input } from 'antd';
 import ImageCrop from '../image-crop';
 
+import './style.less';
+
 export default (props) => {
   const { data, pageIdx, elementIdx, onChange, onClose } = props;
 
@@ -11,7 +13,6 @@ export default (props) => {
   }
 
   const handleElementChange = (key, value) => {
-    console.log('====', value)
     key = typeof key === 'string' ? key.split('.') : key;
     onChange(['pages', pageIdx, 'elements', elementIdx, ...key], {$set: value});
   }
@@ -22,8 +23,9 @@ export default (props) => {
 
   return (
     <Drawer
+      className="image-crop-drawer"
       title="编辑"
-      width="80%"
+      width="90%"
       visible={elementIdx > -1}
       onClose={onClose}
     >
@@ -35,8 +37,6 @@ export default (props) => {
           onChange={crop => handleElementChange('props.crop', crop)}
         />
       )}
-      
-      <Input onChange={e => handleElementChange('props.value', e.target.value)} />
     </Drawer>
   )
 }
