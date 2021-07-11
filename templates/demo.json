@@ -1,6 +1,8 @@
 {
+  "autoPlay": true,
   "audio": {
-    "src": "./demo.mp3"
+    "src": "./demo.mp3",
+    "autoPlay": true
   },
   "transition": {
     "direction": "horizontal",
