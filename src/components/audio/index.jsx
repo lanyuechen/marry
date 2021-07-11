@@ -6,7 +6,7 @@ import './style.less';
 export default (props) => {
   const { src, autoPlay } = props;
   const ref = useRef();
-  const [paused, setPaused] = useState(true);
+  const [paused, setPaused] = useState(!autoPlay);
 
   const handleToggle = () => {
     if (ref.current.paused) {

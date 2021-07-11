@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Autoplay } from 'swiper';
 
 import PageContainer from '@/components/page-container';
 import ElementContainer from '@/components/element-container';
@@ -8,6 +9,8 @@ import elements from '@/components/elements';
 import prepare from '@/utils/prepare';
 
 import * as service from '@/services';
+
+SwiperCore.use([Autoplay]);
 
 export default (props) => {
   const { id } = props.match.params;
@@ -28,6 +31,7 @@ export default (props) => {
     <>
       <Audio {...data.audio} />
       <Swiper
+        autoplay={data.autoPlay}
         direction={data.transition.direction}
         effect={data.transition.effect}
         // onSlideChange={(swiper) => setCurrentIdx(swiper.activeIndex)}
