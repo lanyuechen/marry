@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Cropper from 'react-easy-crop';
+import { Slider } from 'antd';
 import { debounce } from '@/utils/utils';
 
 import './style.less';
@@ -30,19 +31,22 @@ export default (props) => {
   }, []);
 
   return (
-    <div style={{ width: '100%', height: 300, position: 'relative' }}>
-      <Cropper
-        image={src}
-        aspect={aspect}
-        crop={crop}
-        zoom={zoom}
-        rotation={rotation}
-        initialCroppedAreaPixels={cropDefault && cropDefault.areaPixel}
-        onCropChange={setCrop}
-        onZoomChange={setZoom}
-        onRotationChange={setRotation}
-        onCropComplete={(croppedArea, croppedAreaPixels) => onCropComplete(croppedArea, croppedAreaPixels, zoom, rotation)}
-      />
+    <div className="image-crop-container">
+      <div className="image-crop">
+        <Cropper
+          image={src}
+          aspect={aspect}
+          crop={crop}
+          zoom={zoom}
+          rotation={rotation}
+          initialCroppedAreaPixels={cropDefault && cropDefault.areaPixel}
+          onCropChange={setCrop}
+          onZoomChange={setZoom}
+          onRotationChange={setRotation}
+          onCropComplete={(croppedArea, croppedAreaPixels) => onCropComplete(croppedArea, croppedAreaPixels, zoom, rotation)}
+        />
+      </div>
+      <Slider value={rotation} max={360} onChange={setRotation} />
     </div>
   );
 };
