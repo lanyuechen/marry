@@ -1,0 +1,108 @@
+{
+  "autoPlay": true,
+  "audio": {
+    "src": "./demo.mp3",
+    "autoPlay": true
+  },
+  "transition": {
+    "direction": "horizontal",
+    "effect": "slide"
+  },
+  "pages": [
+    {
+      "background": "#ddd",
+      "elements": [
+        {
+          "type": "image",
+          "props": {
+            "src": "./images/animals/1.jpg"
+          },
+          "position": [0, 0],
+          "size": ["100%", 300],
+          "animation": {
+            "duration": 1000,
+            "type": "slideInLeft"
+          }
+        },
+        {
+          "type": "image",
+          "props": {
+            "src": "./images/animals/2.jpg"
+          },
+          "position": ["5%", 320],
+          "size": ["90%", 200],
+          "rotation": 30,
+          "clip": {
+            "scale": 1.1,
+            "path": "cat"
+          },
+          "animation": {
+            "duration": 1000,
+            "type": "slideInRight"
+          }
+        }
+      ]
+    },
+    {
+      "background": "#eee",
+      "elements": [
+        {
+          "type": "image",
+          "props": {
+            "src": "./images/animals/3.jpg"
+          },
+          "position": [0, 0],
+          "size": ["100%", "30%"],
+          "animation": {
+            "duration": 1000,
+            "type": "slideInLeft"
+          }
+        },
+        {
+          "type": "image",
+          "props": {
+            "src": "./images/animals/4.jpg"
+          },
+          "position": [0, "30%"],
+          "size": ["100%", "40%"],
+          "animation": {
+            "duration": 1000,
+            "delay": 300,
+            "type": "slideInLeft"
+          }
+        },
+        {
+          "type": "image",
+          "props": {
+            "src": "./images/animals/5.jpg"
+          },
+          "position": [0, "70%"],
+          "size": ["100%", "30%"],
+          "animation": {
+            "duration": 1000,
+            "delay": 600,
+            "type": "slideInLeft"
+          }
+        }
+      ]
+    },
+    {
+      "background": "#eee",
+      "elements": [
+        {
+          "type": "image",
+          "props": {
+            "src": "./images/animals/6.jpg"
+          },
+          "position": [0, 0],
+          "size": ["100%", "100%"],
+          "animation": {
+            "duration": 1000,
+            "delay": 300,
+            "type": "slideInTop"
+          }
+        }
+      ]
+    }
+  ]
+}

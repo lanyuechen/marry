@@ -6,32 +6,40 @@ import './style.less';
 export default (props) => {
   const { src, autoPlay } = props;
   const ref = useRef();
-  const [paused, setPaused] = useState(!autoPlay);
+  const [paused, setPaused] = useState(true);
 
   const handleToggle = () => {
     if (ref.current.paused) {
-      setPaused(false);
-      ref.current.volume = 0;
-      ref.current.play();
-      anime({
-        targets: ref.current,
-        easing: 'linear',
-        duration: 2000,
-        volume: 1
-      });
+      play();
     } else {
-      setPaused(true);
-      ref.current.volume = 1;
-      anime({
-        targets: ref.current,
-        easing: 'linear',
-        duration: 2000,
-        volume: 0,
-        complete: () => {
-          ref.current.pause();
-        }
-      });
+      pause();
     } 
+  }
+
+  const play = () => {
+    setPaused(false);
+    ref.current.volume = 0;
+    ref.current.play();
+    anime({
+      targets: ref.current,
+      easing: 'linear',
+      duration: 2000,
+      volume: 1
+    });
+  }
+
+  const pause = () => {
+    setPaused(true);
+    ref.current.volume = 1;
+    anime({
+      targets: ref.current,
+      easing: 'linear',
+      duration: 2000,
+      volume: 0,
+      complete: () => {
+        ref.current.pause();
+      }
+    });
   }
   
   return (
@@ -40,7 +48,6 @@ export default (props) => {
       <audio
         ref={ref}
         src={src}
-        autoPlay={autoPlay}
         loop
       />
     </div>

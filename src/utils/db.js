@@ -59,6 +59,7 @@ class DB {
   insert(data) {
     const _id = uuid();
     this.collection.insert({...data, _id});
+    return _id;
   }
 
   update(spec = {}, data) {

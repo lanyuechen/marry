@@ -8,7 +8,7 @@ import ElementContainer from '@/components/element-container';
 import Audio from '@/components/audio';
 import prepare from '@/utils/prepare';
 
-import * as service from '@/services';
+import * as service from './service';
 
 import PropDrawer from './prop-drawer';
 import EditorBtn from './editor-btn';

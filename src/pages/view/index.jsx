@@ -8,7 +8,7 @@ import Audio from '@/components/audio';
 import elements from '@/components/elements';
 import prepare from '@/utils/prepare';
 
-import * as service from '@/services';
+import * as service from './service';
 
 SwiperCore.use([Autoplay]);
 
