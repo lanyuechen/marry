@@ -1,5 +1,5 @@
 import DB from '@/utils/db';
-import { getTemplate } from '@/services';
+import { getTemplate } from '@/utils/utils';
 
 export async function list(spec) {
   const res = DB.table('template').find(spec);
