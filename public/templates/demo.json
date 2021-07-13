@@ -1,4 +1,6 @@
 {
+  "name": "模板名称",
+  "tags": ["标签1", "标签2"],
   "audio": {
     "src": "./demo.mp3",
     "autoPlay": true

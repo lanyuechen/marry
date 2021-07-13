@@ -25,7 +25,7 @@ export default (props) => {
     history.goBack();
   }
 
-  const handleEdit = () => {
+  const handleEdit = async () => {
     const templateId = await service.clone(id);
     history.push(`/view/${templateId}`);
   }

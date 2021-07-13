@@ -12,6 +12,8 @@
 
 | 属性 | 类型 | 描述 | 默认值 |
 | ---- | ---- | ---- | ---- |
+| name | string | 名称 | - |
+| tags | string[] | 标签 | - |
 | audio | [Audio](#音频配置-Audio) | 背景音乐配置 | - |
 | transition | [Transition](#过渡配置-Transition) | 页面过渡配置 | - |
 | pages | [Page](#页面配置-Page)[] | 页面配置数组 | - |
@@ -21,6 +23,7 @@
 | 属性 | 类型 | 描述 | 默认值 |
 | ---- | ---- | ---- | ---- |
 | src | string | 音频文件地址 | - |
+| autoPlay | boolean | 是否自动播放音频 | false |
 
 ## 过渡配置-Transition
 
@@ -28,6 +31,7 @@
 | ---- | ---- | ---- | ---- |
 | direction | enum | 过渡方向(horizontal, vertical) | horizontal |
 | effect | enum | 过渡效果(slide, fade, cube, coverflow, flip) | slide |
+| autoPlay | boolean | 是否自动切换页面 | false |
 
 - slide: 普通切换、默认
 - fade: 淡入
