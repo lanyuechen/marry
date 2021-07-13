@@ -17,8 +17,8 @@ export default () => {
   }
 
   const handleLink = async (id) => {
-    const templateId = await service.clone(id);
-    history.push(`/view/${templateId}`);
+    // const templateId = await service.clone(id);
+    history.push(`/view/${id}`);
   }
 
   return (
