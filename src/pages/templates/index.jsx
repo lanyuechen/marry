@@ -17,8 +17,8 @@ export default () => {
   }
 
   const handleLink = async (id) => {
-    const tplId = await service.clone(id);
-    history.push(`/editor/${tplId}`);
+    const templateId = await service.clone(id);
+    history.push(`/view/${templateId}`);
   }
 
   return (

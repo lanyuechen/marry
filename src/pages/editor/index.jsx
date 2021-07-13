@@ -1,27 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import update from 'immutability-helper';
 
-import ELEMENTS from '@/components/elements';
-import PageContainer from '@/components/page-container';
-import ElementContainer from '@/components/element-container';
-import Audio from '@/components/audio';
-import prepare from '@/utils/prepare';
+import View from '@/components/view';
+
+import PropDrawer from './prop-drawer';
 
 import * as service from './service';
 
-import PropDrawer from './prop-drawer';
-import EditorBtn from './editor-btn';
-
 export default (props) => {
   const { id } = props.match.params;
-  const [ currentIdx, setCurrentIdx ] = useState(0);
+  const [ currentPageIdx, setCurrentPageIdx ] = useState(0);
   const [ currentElementIdx, setCurrentElementIdx ] = useState(-1);
   const [ data, setData ] = useState();
 
   useEffect(() => {
     service.getTemplate(id).then(res => {
-      setData(prepare(res));
+      setData(res);
     });
   }, [id]);
 
@@ -29,8 +23,9 @@ export default (props) => {
     return null;
   }
 
-  const showPropDrawer = (idx) => {
-    setCurrentElementIdx(idx);
+  const showPropDrawer = (pageIdx, elementIdx) => {
+    setCurrentPageIdx(pageIdx);
+    setCurrentElementIdx(elementIdx);
   }
 
   const hidePropDrawer = () => {
@@ -47,42 +42,16 @@ export default (props) => {
     <>
       <PropDrawer
         data={data}
-        pageIdx={currentIdx}
+        pageIdx={currentPageIdx}
         elementIdx={currentElementIdx}
         onChange={handleChange}
         onClose={hidePropDrawer}
       />
-      <Audio {...data.audio} />
-      <Swiper
-        direction={data.transition.direction}
-        effect={data.transition.effect}
-        // onSlideChange={(swiper) => setCurrentIdx(swiper.activeIndex)}
-        onSlideChangeTransitionEnd={(swiper) => setCurrentIdx(swiper.activeIndex)}
-      >
-        {data.pages.map((page, pageIdx) => (
-          <SwiperSlide key={page.id}>
-            <PageContainer background={page.background}>
-              {page.elements && page.elements.map((element, elementIdx) => {
-                const C = ELEMENTS[element.type];
-                return (
-                  <ElementContainer
-                    key={elementIdx} 
-                    entrance={currentIdx === pageIdx}
-                    position={element.position}
-                    size={element.size}
-                    rotation={element.rotation}
-                    clip={element.clip}
-                    animation={element.animation}
-                  >
-                    <C {...element.props} size={element.size} />
-                    <EditorBtn onClick={() => showPropDrawer(elementIdx)} />
-                  </ElementContainer>
-                );
-              })}
-            </PageContainer>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <View
+        data={data}
+        editable={true}
+        onEdit={showPropDrawer}
+      />
     </>
   )
 }
