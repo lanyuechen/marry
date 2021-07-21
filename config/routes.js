@@ -19,6 +19,10 @@ export default [
         component: '@/pages/templates/preview',
       },
       {
+        path: '/my',
+        component: '@/pages/my',
+      },
+      {
         path: '/view/:id',
         component: '@/pages/view',
       },

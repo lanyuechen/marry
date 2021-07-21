@@ -5,6 +5,8 @@ import View from '@/components/view';
 
 import { getTemplate } from '@/utils/utils';
 
+import * as service from '../service';
+
 import style from './style.less';
 
 export default (props) => {
@@ -26,8 +28,8 @@ export default (props) => {
   }
 
   const handleEdit = async () => {
-    const templateId = await service.clone(id);
-    history.push(`/view/${templateId}`);
+    const newId = await service.clone(id);
+    history.push(`/editor/${newId}`);
   }
 
   return (
