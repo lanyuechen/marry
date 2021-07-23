@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Card } from 'antd';
 import { history } from 'umi';
+import Container from '@/components/container';
 import * as service from './service';
-
-import style from './style.css';
 
 export default () => {
   const [data, setData] = useState([]);
@@ -21,7 +20,7 @@ export default () => {
   }
 
   return (
-    <div className={style.container}>
+    <Container>
       <Row gutter={[16, 16]}>
         {data.map(d => (
           <Col key={d._id} span={12}>
@@ -35,6 +34,6 @@ export default () => {
           </Col>
         ))}
       </Row>
-    </div>
+    </Container>
   )
 }

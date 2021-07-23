@@ -34,7 +34,7 @@ export default (props) => {
 
   return (
     <>
-      {/* <View data={data} /> */}
+      <View data={data} />
 
       <Space className={style.tool} direction="vertical">
         <Button shape="circle" onClick={handleBack}>

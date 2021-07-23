@@ -1,9 +1,10 @@
 import React from 'react';
+import Container from '@/components/container';
 
 export default function() {
   return (
-    <div>
+    <Container>
       首页
-    </div>
+    </Container>
   );
 }
