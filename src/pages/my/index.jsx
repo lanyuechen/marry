@@ -3,7 +3,7 @@ import { Row, Col, Card } from 'antd';
 import { history } from 'umi';
 import * as service from './service';
 
-import './style.css';
+import style from './style.css';
 
 export default () => {
   const [data, setData] = useState([]);
@@ -23,7 +23,7 @@ export default () => {
   }
 
   return (
-    <div className="my-container">
+    <div className={style.container}>
       <Row gutter={[16, 16]}>
         {data.map(d => (
           <Col key={d._id} span={12}>

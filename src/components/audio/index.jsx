@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import anime from 'animejs/lib/anime.es.js';
 
-import './style.less';
+import style from './style.less';
 
 export default (props) => {
   const { src, autoPlay } = props;
@@ -43,7 +43,7 @@ export default (props) => {
   }
   
   return (
-    <div className="audio-container" onClick={handleToggle}>
+    <div className={style.container} onClick={handleToggle}>
       <span className={`icon icon-music ${paused ? '' : 'spin'}`} />
       <audio
         ref={ref}

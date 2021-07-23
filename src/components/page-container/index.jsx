@@ -1,12 +1,12 @@
 import React from 'react';
 
-import './style.css';
+import style from './style.css';
 
 export default (props) => {
   const { background, children } = props;
   return (
     <div
-      className="page-container"
+      className={style.container}
       style={{ background }}
     >
       {children}

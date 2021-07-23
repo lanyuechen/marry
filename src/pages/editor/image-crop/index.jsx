@@ -3,7 +3,7 @@ import Cropper from 'react-easy-crop';
 import { Slider } from 'antd';
 import { debounce } from '@/utils/utils';
 
-import './style.less';
+import style from './style.less';
 
 export default (props) => {
   const { src, aspect, crop: cropDefault, onChange } = props;
@@ -31,8 +31,8 @@ export default (props) => {
   }, []);
 
   return (
-    <div className="image-crop-container">
-      <div className="image-crop">
+    <div className={style.container}>
+      <div className={style.imageCrop}>
         <Cropper
           image={src}
           aspect={aspect}

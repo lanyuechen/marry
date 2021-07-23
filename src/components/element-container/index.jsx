@@ -4,7 +4,7 @@ import anime from 'animejs/lib/anime.es.js';
 import { prepareKeyframes, prepareInitState } from '@/utils/prepare';
 import ClipPath from '@/components/clip-path';
 
-import './style.css';
+import style from './style.css';
 
 export default (props) => {
   const {
@@ -49,7 +49,7 @@ export default (props) => {
   return (
     <div
       ref={ref}
-      className="element-container"
+      className={style.container}
       style={{
         ...initState,
         clipPath: clip && `url(#${clip.id})`,

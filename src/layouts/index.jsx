@@ -1,8 +1,8 @@
-import './index.css';
+import style from './index.css';
 
 function BasicLayout(props) {
   return (
-    <div className="layout-normal">
+    <div className={style.container}>
       {props.children}
     </div>
   );

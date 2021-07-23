@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Drawer, Input } from 'antd';
 import ImageCrop from '../image-crop';
 
-import './style.less';
+import style from './style.less';
 
 export default (props) => {
   const { data, pageIdx, elementIdx, onChange, onClose } = props;
@@ -23,7 +23,7 @@ export default (props) => {
 
   return (
     <Drawer
-      className="image-crop-drawer"
+      className={style.drawer}
       title="编辑"
       width="90%"
       visible={elementIdx > -1}

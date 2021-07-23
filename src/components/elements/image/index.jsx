@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
 
-import './style.css';
+import style from './style.css';
 
 export default (props) => {
   const { src, size, crop } = props;
 
-  const style = useMemo(() => {
+  const cropedStyle = useMemo(() => {
     if (crop) {
       const w = crop.areaPixel.width / crop.area.width * 100;
       const h = crop.areaPixel.height / crop.area.height * 100;
@@ -26,8 +26,8 @@ export default (props) => {
 
   return (
     <img
-      className="element-image"
-      style={style}
+      className={style.image}
+      style={cropedStyle}
       src={src}
       alt="img"
     />

@@ -10,7 +10,7 @@ import prepare from '@/utils/prepare';
 
 SwiperCore.use([Autoplay]);
 
-import './style.less';
+import style from './style.less';
 
 export default (props) => {
   const { data: _data, editable, onEdit } = props;
@@ -45,7 +45,7 @@ export default (props) => {
                     <C {...element.props} size={element.size} />
                     {editable && onEdit && (
                       <button
-                        className="editor-btn icon icon-edit"
+                        className={`${style.btn} icon icon-edit`}
                         onClick={() => onEdit(pageIdx, elementIdx)}
                       />
                     )}
