@@ -1,6 +1,7 @@
 {
   "name": "模板名称",
   "description": "测试模板",
+  "cover": "",
   "tags": ["标签1", "标签2"],
   "audio": {
     "src": "./demo.mp3",
