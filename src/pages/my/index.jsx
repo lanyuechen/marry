@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col, Card } from 'antd';
 import { history } from 'umi';
 import Container from '@/components/container';
-import * as service from './service';
+import * as storyService from '@/services/story';
 
 export default () => {
   const [data, setData] = useState([]);
@@ -11,7 +11,7 @@ export default () => {
   }, []);
 
   const getList = async () => {
-    const res = await service.list();
+    const res = await storyService.list();
     if (res.success) {
       setData(res.data);
     }

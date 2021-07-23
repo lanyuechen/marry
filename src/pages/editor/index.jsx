@@ -5,7 +5,7 @@ import View from '@/components/view';
 
 import PropDrawer from './prop-drawer';
 
-import * as service from './service';
+import * as storyService from '@/services/story';
 
 export default (props) => {
   const { id } = props.match.params;
@@ -14,8 +14,10 @@ export default (props) => {
   const [ data, setData ] = useState();
 
   useEffect(() => {
-    service.getTemplate(id).then(res => {
-      setData(res);
+    storyService.detail(id).then(res => {
+      if (res.success) {
+        setData(res.data);
+      }
     });
   }, [id]);
 

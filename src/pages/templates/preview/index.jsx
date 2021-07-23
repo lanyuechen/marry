@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button, Space } from 'antd';
 import { history } from 'umi';
 import View from '@/components/view';
-
 import { getTemplate } from '@/utils/utils';
-
-import * as service from '../service';
+import * as storyService from '@/services/story';
 
 import style from './style.less';
 
@@ -28,8 +26,10 @@ export default (props) => {
   }
 
   const handleEdit = async () => {
-    const newId = await service.clone(id);
-    history.push(`/editor/${newId}`);
+    const res = await storyService.insert(data);
+    if (res.success) {
+      history.push(`/editor/${res.data._id}`);
+    }
   }
 
   return (

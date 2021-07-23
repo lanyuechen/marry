@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Row, Col, Card } from 'antd';
 import { history } from 'umi';
 import Container from '@/components/container';
-import * as service from './service';
+import templates from './templates';
 
 export default () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    getList();
-  }, []);
-
-  const getList = async () => {
-    const res = await service.list();
-    setData(res.data);
-  }
 
   const handleLink = async (id) => {
     history.push(`/templates/${id}`);
@@ -22,7 +13,7 @@ export default () => {
   return (
     <Container>
       <Row gutter={[16, 16]}>
-        {data.map(d => (
+        {templates.map(d => (
           <Col key={d._id} span={12}>
             <Card
               hoverable
