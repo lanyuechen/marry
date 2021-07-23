@@ -13,7 +13,9 @@ export default () => {
 
   const getList = async () => {
     const res = await service.list();
-    setData(res.data);
+    if (res.success) {
+      setData(res.data);
+    }
   }
 
   const handleEdit = async (id) => {

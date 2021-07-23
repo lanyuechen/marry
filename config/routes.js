@@ -1,9 +1,27 @@
+/**
+ * 注意：路由定义的顺序会影响路由的解析
+ */
 export default [
+  // 模板预览页
+  {
+    path: '/templates/:id',
+    component: '@/pages/templates/preview',
+  },
+  // 预览
+  {
+    path: '/view/:id',
+    component: '@/pages/view',
+  },
+  // 编辑
+  {
+    path: '/editor/:id',
+    component: '@/pages/editor',
+  },
   {
     path: '/',
-    component: '@/layouts/index',
+    component: '@/layouts/basic-layout',
     routes: [
-      // hello world
+      // 首页
       {
         path: '/',
         component: '@/pages/index',
@@ -13,22 +31,9 @@ export default [
         path: '/templates',
         component: '@/pages/templates',
       },
-      // 模板预览页
-      {
-        path: '/templates/:id',
-        component: '@/pages/templates/preview',
-      },
       {
         path: '/my',
         component: '@/pages/my',
-      },
-      {
-        path: '/view/:id',
-        component: '@/pages/view',
-      },
-      {
-        path: '/editor/:id',
-        component: '@/pages/editor',
       },
     ]
   },
