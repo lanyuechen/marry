@@ -17,7 +17,6 @@ export default () => {
   }
 
   const handleLink = async (id) => {
-    // const templateId = await service.clone(id);
     history.push(`/templates/${id}`);
   }
 
@@ -25,13 +24,13 @@ export default () => {
     <div className="templates-container">
       <Row gutter={[16, 16]}>
         {data.map(d => (
-          <Col key={d.id} span={12}>
+          <Col key={d._id} span={12}>
             <Card
               hoverable
               cover={<img src={d.cover} />}
-              onClick={() => handleLink(d.id)}
+              onClick={() => handleLink(d._id)}
             >
-              <Card.Meta title={d.title} description={d.desc} />
+              <Card.Meta title={d.name} description={d.description} />
             </Card>
           </Col>
         ))}

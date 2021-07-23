@@ -13,6 +13,7 @@
 | 属性 | 类型 | 描述 | 默认值 |
 | ---- | ---- | ---- | ---- |
 | name | string | 名称 | - |
+| description | string | 描述 | - |
 | tags | string[] | 标签 | - |
 | audio | [Audio](#音频配置-Audio) | 背景音乐配置 | - |
 | transition | [Transition](#过渡配置-Transition) | 页面过渡配置 | - |

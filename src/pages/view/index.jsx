@@ -20,5 +20,5 @@ export default (props) => {
 
   return (
     <View data={data} />
-  )
+  );
 }

@@ -18,21 +18,21 @@ export default () => {
     }
   }
 
-  const handleEdit = async (id) => {
-    history.push(`/editor/${id}`);
+  const handleView = async (id) => {
+    history.push(`/view/${id}`);
   }
 
   return (
     <div className="my-container">
       <Row gutter={[16, 16]}>
         {data.map(d => (
-          <Col key={d.id} span={12}>
+          <Col key={d._id} span={12}>
             <Card
               hoverable
               cover={<img src={d.cover} />}
-              onClick={() => handleEdit(d.id)}
+              onClick={() => handleView(d._id)}
             >
-              <Card.Meta title={d.title} description={d.desc} />
+              <Card.Meta title={d.name} description={d.description} />
             </Card>
           </Col>
         ))}

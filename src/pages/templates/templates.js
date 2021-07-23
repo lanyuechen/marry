@@ -1,20 +1,8 @@
 export default [
   {
-    id: 'demo',
-    title: '模板1',
-    desc: '模板1',
+    _id: 'demo',
+    name: '模板名称',
+    description: '测试模板',
     cover: './images/animals/1-.jpg',
   },
-  {
-    id: 'demo2',
-    title: '模板2',
-    desc: '模板2',
-    cover: './images/animals/1-.jpg',
-  },
-  {
-    id: 'demo3',
-    title: '模板3',
-    desc: '模板3',
-    cover: './images/animals/1-.jpg',
-  }
 ]
