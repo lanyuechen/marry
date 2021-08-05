@@ -10,7 +10,7 @@
   "transition": {
     "direction": "horizontal",
     "effect": "slide",
-    "autoPlay": true
+    "autoPlay": false
   },
   "pages": [
     {
