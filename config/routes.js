@@ -31,6 +31,7 @@ export default [
         path: '/templates',
         component: '@/pages/templates',
       },
+      // 个人页
       {
         path: '/my',
         component: '@/pages/my',

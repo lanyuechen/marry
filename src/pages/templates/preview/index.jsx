@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Space } from 'antd';
 import { history } from 'umi';
 import View from '@/components/view';
+import Icon from '@/components/icon';
 import { getTemplate } from '@/utils/utils';
 import * as storyService from '@/services/story';
 
@@ -38,10 +39,10 @@ export default (props) => {
 
       <Space className={style.tool} direction="vertical">
         <Button shape="circle" onClick={handleBack}>
-          <span className="icon icon-back" />
+          <Icon type="icon-back" />
         </Button>
         <Button shape="circle" onClick={handleEdit}>
-          <span className="icon icon-edit" />
+          <Icon type="icon-edit" />
         </Button>
       </Space>
     </>

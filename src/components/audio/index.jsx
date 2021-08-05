@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import anime from 'animejs/lib/anime.es.js';
+import Icon from '@/components/icon';
 
 import style from './style.less';
 
@@ -44,7 +45,7 @@ export default (props) => {
   
   return (
     <div className={style.container} onClick={handleToggle}>
-      <span className={`icon icon-music ${paused ? '' : 'spin'}`} />
+      <Icon type="icon-music" className={`${paused ? '' : 'spin'}`} />
       <audio
         ref={ref}
         src={src}

@@ -5,6 +5,7 @@ import SwiperCore, { Autoplay } from 'swiper';
 import PageContainer from '@/components/page-container';
 import ElementContainer from '@/components/element-container';
 import Audio from '@/components/audio';
+import Icon from '@/components/icon';
 import elements from '@/components/elements';
 import prepare from '@/utils/prepare';
 
@@ -45,9 +46,11 @@ export default (props) => {
                     <C {...element.props} size={element.size} />
                     {editable && onEdit && (
                       <button
-                        className={`${style.btn} icon icon-edit`}
+                        className={style.btn}
                         onClick={() => onEdit(pageIdx, elementIdx)}
-                      />
+                      >
+                        <Icon type="icon-edit" />
+                      </button>
                     )}
                   </ElementContainer>
                 );
