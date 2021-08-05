@@ -9,6 +9,8 @@ import PropDrawer from './prop-drawer';
 
 import * as storyService from '@/services/story';
 
+import style from './style.less';
+
 export default (props) => {
   const { id } = props.match.params;
   const [ currentPageIdx, setCurrentPageIdx ] = useState(0);
