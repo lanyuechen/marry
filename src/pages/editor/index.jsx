@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import update from 'immutability-helper';
-
+import { Button, Space } from 'antd';
+import { history } from 'umi';
 import View from '@/components/view';
+import Icon from '@/components/icon';
 
 import PropDrawer from './prop-drawer';
 
@@ -40,6 +42,14 @@ export default (props) => {
     setData(data => update(data, spec));
   }
 
+  const handleBack = () => {
+    history.push('/my');
+  }
+
+  const handleView = async () => {
+    history.push(`/view/${id}`);
+  }
+
   return (
     <>
       <PropDrawer
@@ -50,10 +60,19 @@ export default (props) => {
         onClose={hidePropDrawer}
       />
       <View
+        editable
         data={data}
-        editable={true}
         onEdit={showPropDrawer}
       />
+
+      <Space className={style.tool} direction="vertical">
+        <Button shape="circle" onClick={handleBack}>
+          <Icon type="icon-back" />
+        </Button>
+        <Button shape="circle" onClick={handleView}>
+          <Icon type="icon-view" />
+        </Button>
+      </Space>
     </>
   )
 }
