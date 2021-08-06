@@ -1,0 +1,43 @@
+{
+  "name": "页面元素",
+  "description": "不同页面元素展示",
+  "cover": "",
+  "tags": ["演示", "测试"],
+  "transition": {
+    "direction": "horizontal",
+    "effect": "slide",
+    "autoPlay": false
+  },
+  "pages": [
+    {
+      "background": "#ddd",
+      "elements": [
+        {
+          "type": "text",
+          "props": {
+            "value": "这是一段文字"
+          },
+          "position": ["10%", 20],
+          "size": ["80%", 100],
+          "animation": {
+            "duration": 1000,
+            "type": "slideInLeft"
+          }
+        },
+        {
+          "type": "icon",
+          "props": {
+            "type": "001-man",
+            "size": 48
+          },
+          "position": ["10%", 120],
+          "size": ["80%", 100],
+          "animation": {
+            "duration": 1000,
+            "type": "slideInLeft"
+          }
+        }
+      ]
+    }
+  ]
+}

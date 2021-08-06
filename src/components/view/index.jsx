@@ -21,7 +21,7 @@ export default (props) => {
 
   return (
     <>
-      <Audio {...data.audio} />
+      {data.audio && <Audio {...data.audio} />}
       <Swiper
         autoplay={data.transition.autoPlay}
         direction={data.transition.direction}

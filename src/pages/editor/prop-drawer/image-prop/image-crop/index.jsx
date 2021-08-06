@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Cropper from 'react-easy-crop';
-import { Slider } from 'antd';
 import { debounce } from '@/utils/utils';
 
 import style from './style.less';
@@ -46,7 +45,6 @@ export default (props) => {
           onCropComplete={(croppedArea, croppedAreaPixels) => onCropComplete(croppedArea, croppedAreaPixels, zoom, rotation)}
         />
       </div>
-      <Slider value={rotation} max={360} onChange={setRotation} />
     </div>
   );
 };

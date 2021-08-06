@@ -1,9 +1,18 @@
 import React, { useMemo } from 'react';
-import { Drawer, Input } from 'antd';
+import { Drawer } from 'antd';
 import { prepareElement } from '@/utils/prepare';
-import ImageCrop from '../image-crop';
+
+import ImageProp from './image-prop';
+import TextProp from './text-prop';
+import IconProp from './icon-prop';
 
 import style from './style.less';
+
+const PROP_FORMS = {
+  image: ImageProp,
+  text: TextProp,
+  icon: IconProp,
+};
 
 export default (props) => {
   const { data, pageIdx, elementIdx, onChange, onClose } = props;
@@ -23,6 +32,12 @@ export default (props) => {
     return ele && prepareElement(ele);
   }, [data, pageIdx, elementIdx]);
 
+  const PropForm = useMemo(() => {
+    if (element) {
+      return PROP_FORMS[element.type];
+    }
+  }, [element]);
+
   return (
     <Drawer
       className={style.drawer}
@@ -31,12 +46,10 @@ export default (props) => {
       visible={elementIdx > -1}
       onClose={onClose}
     >
-      {element && (
-        <ImageCrop
-          src={element.props.src}
-          aspect={element.size[0] / element.size[1]}
-          crop={element.props.crop}
-          onChange={crop => handleElementChange('props.crop', crop)}
+      {element && PropForm && (
+        <PropForm
+          element={element}
+          onChange={handleElementChange}
         />
       )}
     </Drawer>
