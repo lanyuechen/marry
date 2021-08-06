@@ -5,7 +5,6 @@ export default {
     type: 'hash'
   },
   publicPath: '/marry/',
-  base: '/marry/',
   routes,
   antd: {}
 }
