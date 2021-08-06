@@ -72,9 +72,7 @@ export const prepareUnit = (value, base) => {
 }
 
 export const prepareKeyframes = (animation, target) => {
-  if (!animation) {
-    return [];
-  }
+  animation = animation || {};
   const { position, size, rotation } = target;
   const width = prepareUnit(size[0], window.innerWidth);
   const height = prepareUnit(size[1], window.innerHeight);
@@ -145,6 +143,6 @@ export const prepareInitState = (attrs) => {
   const { translateX = 0, translateY = 0, rotate = 0, ...others } = attrs;
   return {
     ...others,
-    transform: `translateX(${translateX}px) translateY(${translateY}px) rotate(${rotate})`,
+    transform: `translateX(${translateX}px) translateY(${translateY}px) rotate(${rotate}deg)`,
   };
 }

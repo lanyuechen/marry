@@ -24,6 +24,9 @@ export default (props) => {
   const initState = prepareInitState(firstKeyFrame);  // 元素初始状态
 
   useEffect(() => {
+    if (!keyframes.length) {
+      return;
+    }
     if (entrance) { // 入场
       if (!store.current) {
         store.current = anime({

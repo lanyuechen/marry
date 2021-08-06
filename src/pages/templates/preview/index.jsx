@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Space } from 'antd';
+import { Button } from 'antd';
 import { history } from 'umi';
 import View from '@/components/view';
 import Icon from '@/components/icon';
+import Toolbox from '@/components/toolbox';
 import { getTemplate } from '@/utils/utils';
 import * as storyService from '@/services/story';
-
-import style from './style.less';
 
 export default (props) => {
   const { id } = props.match.params;
@@ -37,14 +36,14 @@ export default (props) => {
     <>
       <View data={data} />
 
-      <Space className={style.tool} direction="vertical">
+      <Toolbox>
         <Button shape="circle" onClick={handleBack}>
           <Icon type="icon-back" />
         </Button>
         <Button shape="circle" onClick={handleEdit}>
           <Icon type="icon-edit" />
         </Button>
-      </Space>
+      </Toolbox>
     </>
   )
 }

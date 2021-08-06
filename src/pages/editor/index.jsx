@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import update from 'immutability-helper';
-import { Button, Space } from 'antd';
+import { Button, Popconfirm } from 'antd';
 import { history } from 'umi';
 import View from '@/components/view';
 import Icon from '@/components/icon';
+import Toolbox from '@/components/toolbox';
 
 import PropDrawer from './prop-drawer';
 
 import * as storyService from '@/services/story';
-
-import style from './style.less';
 
 export default (props) => {
   const { id } = props.match.params;
@@ -53,6 +52,14 @@ export default (props) => {
     history.push('/my');
   }
 
+  const handleRemove = () => {
+    storyService.remove(id).then(res => {
+      if (res.success) {
+        handleBack();
+      }
+    });
+  }
+
   const handleView = async () => {
     history.push(`/view/${id}`);
   }
@@ -72,14 +79,25 @@ export default (props) => {
         onEdit={showPropDrawer}
       />
 
-      <Space className={style.tool} direction="vertical">
+      <Toolbox>
         <Button shape="circle" onClick={handleBack}>
           <Icon type="icon-back" />
         </Button>
+        <Popconfirm
+          title="覆水难收，你确定要删除这个请柬吗？"
+          okText="嗯"
+          cancelText="算了吧"
+          placement="topRight"
+          onConfirm={handleRemove}
+        >
+          <Button shape="circle">
+            <Icon type="icon-dustbin" />
+          </Button>
+        </Popconfirm>
         <Button shape="circle" onClick={handleView}>
           <Icon type="icon-view" />
         </Button>
-      </Space>
+      </Toolbox>
     </>
   )
 }
