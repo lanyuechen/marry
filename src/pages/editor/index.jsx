@@ -41,7 +41,12 @@ export default (props) => {
   const handleChange = (key, spec) => {
     key = typeof key === 'string' ? key.split('.') : [...key];
     spec = key.reverse().reduce((p, n) => ({[n]: p}), spec);
-    setData(data => update(data, spec));
+    const newData = update(data, spec);
+    storyService.update(id, newData).then(res => {
+      if (res.success) {
+        setData(newData);
+      }
+    });
   }
 
   const handleBack = () => {

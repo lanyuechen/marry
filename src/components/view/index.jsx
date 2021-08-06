@@ -41,7 +41,7 @@ export default (props) => {
                     size={element.size}
                     rotation={element.rotation}
                     clip={element.clip}
-                    animation={element.animation}
+                    animation={!editable && element.animation}
                   >
                     <C {...element.props} size={element.size} />
                     {editable && onEdit && (

@@ -72,6 +72,9 @@ export const prepareUnit = (value, base) => {
 }
 
 export const prepareKeyframes = (animation, target) => {
+  if (!aniumation) {
+    return [];
+  }
   const { position, size, rotation } = target;
   const width = prepareUnit(size[0], window.innerWidth);
   const height = prepareUnit(size[1], window.innerHeight);
