@@ -13,6 +13,7 @@ export default (props) => {
 
   useEffect(() => {
     storyService.detail(id).then(res => {
+      console.log('===', res)
       if(res.success) {
         setData(res.data);
       }

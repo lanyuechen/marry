@@ -72,7 +72,7 @@ export const prepareUnit = (value, base) => {
 }
 
 export const prepareKeyframes = (animation, target) => {
-  if (!aniumation) {
+  if (!animation) {
     return [];
   }
   const { position, size, rotation } = target;

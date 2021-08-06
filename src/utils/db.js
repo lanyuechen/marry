@@ -38,9 +38,10 @@ class DB {
     this.db = new Loki(DB_NAME, {
       env: 'BROWSER',
       autosave: true,
-      autoload: true,
+      // autoload: true,
       adapter: adapter,
     });
+    this.db.loadDatabase();
   }
 
   table(name) {
