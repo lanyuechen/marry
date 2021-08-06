@@ -7,7 +7,7 @@ import style from './style.less';
 export default function(props) {
   return (
     <div className={style.layout}>
-      {/* {props.children} */}
+      {props.children}
       <div className={style.navbar}>
         <NavLink to="/" exact activeClassName={style.active}>
           <Icon type="icon-home" />
