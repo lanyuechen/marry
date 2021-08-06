@@ -33,7 +33,7 @@ export default (props) => {
   return (
     <div className={style.container}>
       <div className={style.imageCrop}>
-        {/* <Cropper
+        <Cropper
           image={src}
           aspect={aspect}
           crop={crop}
@@ -44,7 +44,7 @@ export default (props) => {
           onZoomChange={setZoom}
           onRotationChange={setRotation}
           onCropComplete={(croppedArea, croppedAreaPixels) => onCropComplete(croppedArea, croppedAreaPixels, zoom, rotation)}
-        /> */}
+        />
       </div>
       <Slider value={rotation} max={360} onChange={setRotation} />
     </div>

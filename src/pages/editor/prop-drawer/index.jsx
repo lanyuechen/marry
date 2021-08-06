@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Drawer, Input } from 'antd';
+import { prepareElement } from '@/utils/prepare';
 import ImageCrop from '../image-crop';
 
 import style from './style.less';
@@ -18,7 +19,8 @@ export default (props) => {
   }
 
   const element = useMemo(() => {
-    return data.pages.find((p, idx) => idx === pageIdx)?.elements?.find((e, idx) => idx === elementIdx);
+    const ele = data.pages.find((p, idx) => idx === pageIdx)?.elements?.find((e, idx) => idx === elementIdx);
+    return ele && prepareElement(ele);
   }, [data, pageIdx, elementIdx]);
 
   return (
