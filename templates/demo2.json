@@ -13,14 +13,40 @@
       "background": "#ddd",
       "elements": [
         {
+          "type": "image",
+          "props": {
+            "src": "./images/animals/1.jpg"
+          },
+          "position": [0, 0],
+          "size": ["100%", 300],
+          "animation": {
+            "duration": 1000,
+            "type": "slideInLeft"
+          }
+        },
+        {
           "type": "text",
           "props": {
-            "value": "这是一段文字"
+            "value": "文字文字文字文字文字文字"
           },
-          "position": ["10%", 20],
+          "position": ["10%", 400],
           "size": ["80%", 100],
           "animation": {
             "duration": 1000,
+            "delay": 500,
+            "type": "slideInLeft"
+          }
+        },
+        {
+          "type": "icon",
+          "props": {
+            "type": "001-man"
+          },
+          "position": ["10%", 450],
+          "size": [100, 100],
+          "animation": {
+            "duration": 1000,
+            "delay": 1000,
             "type": "slideInLeft"
           }
         }
