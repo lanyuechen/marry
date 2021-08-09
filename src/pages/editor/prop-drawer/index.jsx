@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Drawer } from 'antd';
 import { prepareElement } from '@/utils/prepare';
 
-import StoryProp from './stroy-prop';
+import StoryProp from './story-prop';
 import PageProp from './page-prop';
 import ImageProp from './image-prop';
 import TextProp from './text-prop';
