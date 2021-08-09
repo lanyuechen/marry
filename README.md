@@ -49,7 +49,8 @@
 | ---- | ---- | ---- | ---- |
 | direction | enum | 过渡方向(horizontal, vertical) | horizontal |
 | effect | enum | 过渡效果(slide, fade, cube, coverflow, flip) | slide |
-| autoPlay | boolean | 是否自动切换页面 | false |
+| autoPlay | boolean\|AutoplayOptions | 是否自动切换页面 | false |
+| duration | number | 自动切换时间间隔，autoPlay为true时有效 | 3000 |
 
 - slide: 普通切换、默认
 - fade: 淡入
@@ -117,3 +118,9 @@
 | 属性 | 类型 | 描述 | 默认值 |
 | ---- | ---- | ---- | ---- |
 | value | string | 显示的文字内容 | - |
+
+### 图标-Icon
+
+| 属性 | 类型 | 描述 | 默认值 |
+| ---- | ---- | ---- | ---- |
+| type | string | 图标类型 | - |

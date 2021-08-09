@@ -14,7 +14,7 @@ export default () => {
     <Container>
       <Row gutter={[16, 16]}>
         {templates.map(d => (
-          <Col key={d._id} span={12}>
+          <Col key={d._id} span={8}>
             <Card
               hoverable
               cover={<img src={d.cover} />}

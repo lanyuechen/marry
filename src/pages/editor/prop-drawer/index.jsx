@@ -2,6 +2,8 @@ import React, { useMemo } from 'react';
 import { Drawer } from 'antd';
 import { prepareElement } from '@/utils/prepare';
 
+import StoryProp from './stroy-prop';
+import PageProp from './page-prop';
 import ImageProp from './image-prop';
 import TextProp from './text-prop';
 import IconProp from './icon-prop';
@@ -28,7 +30,7 @@ export default (props) => {
   }
 
   const element = useMemo(() => {
-    const ele = data.pages.find((p, idx) => idx === pageIdx)?.elements?.find((e, idx) => idx === elementIdx);
+    const ele = data.pages[pageIdx]?.elements?.[elementIdx];
     return ele && prepareElement(ele);
   }, [data, pageIdx, elementIdx]);
 
@@ -46,6 +48,14 @@ export default (props) => {
       visible={elementIdx > -1}
       onClose={onClose}
     >
+      <StoryProp
+        data={data}
+        onChange={onChange}
+      />
+      <PageProp
+        page={data.pages[pageIdx]}
+        onChange={handlePageChange}
+      />
       {element && PropForm && (
         <PropForm
           element={element}

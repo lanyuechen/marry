@@ -23,7 +23,9 @@ export default (props) => {
     <>
       {data.audio && <Audio {...data.audio} />}
       <Swiper
-        autoplay={data.transition.autoPlay}
+        autoplay={data.transition.autoPlay && {
+          delay: data.transition.duration || 3000
+        }}
         direction={data.transition.direction}
         effect={data.transition.effect}
         onSlideChangeTransitionEnd={(swiper) => setCurrentIdx(swiper.activeIndex)}
