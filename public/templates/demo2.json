@@ -23,19 +23,6 @@
             "duration": 1000,
             "type": "slideInLeft"
           }
-        },
-        {
-          "type": "icon",
-          "props": {
-            "type": "001-man",
-            "size": 48
-          },
-          "position": ["10%", 120],
-          "size": ["80%", 100],
-          "animation": {
-            "duration": 1000,
-            "type": "slideInLeft"
-          }
         }
       ]
     }

@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
-import { Drawer } from 'antd';
+import { Drawer, Tabs } from 'antd';
 import { prepareElement } from '@/utils/prepare';
 
-import StoryProp from './story-prop';
+import GlobalProp from './global-prop';
 import PageProp from './page-prop';
 import ImageProp from './image-prop';
 import TextProp from './text-prop';
@@ -48,25 +48,32 @@ export default (props) => {
   return (
     <Drawer
       className={style.drawer}
-      title="编辑"
       width="90%"
       visible={elementIdx > -1}
       onClose={onClose}
     >
-      <StoryProp
-        data={data}
-        onChange={handleChange}
-      />
-      <PageProp
-        page={data.pages[pageIdx]}
-        onChange={handlePageChange}
-      />
-      {element && PropForm && (
-        <PropForm
-          element={element}
-          onChange={handleElementChange}
-        />
-      )}
+      <Tabs>
+        {element && PropForm && (
+          <Tabs.TabPane tab="元素配置" key="element">
+            <PropForm
+              element={element}
+              onChange={handleElementChange}
+            />
+          </Tabs.TabPane>)
+        }
+        <Tabs.TabPane tab="页面配置" key="page">
+          <PageProp
+            page={data.pages[pageIdx]}
+            onChange={handlePageChange}
+          />
+        </Tabs.TabPane>
+        <Tabs.TabPane tab="全局配置" key="global">
+          <GlobalProp
+            data={data}
+            onChange={handleChange}
+          />
+        </Tabs.TabPane>
+      </Tabs>
     </Drawer>
   )
 }
