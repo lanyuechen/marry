@@ -19,6 +19,11 @@ const PROP_FORMS = {
 export default (props) => {
   const { data, pageIdx, elementIdx, onChange, onClose } = props;
 
+  const handleChange = (key, value) => {
+    key = typeof key === 'string' ? key.split('.') : key;
+    onChange(key, {$set: value});
+  }
+
   const handlePageChange = (key, value) => {
     key = typeof key === 'string' ? key.split('.') : key;
     onChange(['pages', pageIdx, ...key], {$set: value});
@@ -50,7 +55,7 @@ export default (props) => {
     >
       <StoryProp
         data={data}
-        onChange={onChange}
+        onChange={handleChange}
       />
       <PageProp
         page={data.pages[pageIdx]}
