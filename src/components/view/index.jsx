@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Autoplay } from 'swiper';
 
 import PageContainer from '@/components/page-container';
 import ElementContainer from '@/components/element-container';
@@ -8,8 +7,6 @@ import Audio from '@/components/audio';
 import Icon from '@/components/icon';
 import elements from '@/components/elements';
 import prepare from '@/utils/prepare';
-
-SwiperCore.use([Autoplay]);
 
 import style from './style.less';
 
