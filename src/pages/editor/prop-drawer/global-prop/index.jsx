@@ -10,7 +10,7 @@ export default (props) => {
       <Collapse
         ghost
         expandIconPosition="right"
-        defaultActiveKey={['basic']}
+        defaultActiveKey={['basic', 'audio', 'transition']}
       >
         <Collapse.Panel header={<Divider plain>基础配置</Divider>} key="basic">
           <Form.Item label="名称">
@@ -56,7 +56,7 @@ export default (props) => {
               <Select.Option value="fade">淡入/淡出</Select.Option>
               <Select.Option value="cube">方块</Select.Option>
               <Select.Option value="coverflow">3D流</Select.Option>
-              <Select.Option value="flip">3d翻转</Select.Option>
+              <Select.Option value="flip">3D翻转</Select.Option>
             </Select>
           </Form.Item>
           <Form.Item label="自动切换">

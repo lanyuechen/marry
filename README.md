@@ -15,7 +15,6 @@
 - [grade](https://github.com/benhowdle89/grade) 用于通过图片的主色调生成背景色
 - [lena.js](https://github.com/davidsonfellipe/lena.js) 用于给图片添加滤镜
 - [fabric.js](https://github.com/fabricjs/fabric.js) 用于图形编辑
-- [diaporama](https://github.com/gre/diaporama) 图像/视频/内容幻灯片引擎
 
 ## 目前存在的问题
 

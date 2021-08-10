@@ -20,6 +20,7 @@ export default (props) => {
     <>
       {data.audio && <Audio {...data.audio} />}
       <Swiper
+        style={{height: '100%'}}
         autoplay={data.transition.autoPlay && {
           delay: data.transition.duration || 3000
         }}
