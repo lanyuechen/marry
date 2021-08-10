@@ -35,7 +35,7 @@ export default (props) => {
                 const C = elements[element.type];
                 return (
                   <ElementContainer
-                    key={elementIdx} 
+                    key={elementIdx}
                     entrance={currentIdx === pageIdx}
                     position={element.position}
                     size={element.size}
