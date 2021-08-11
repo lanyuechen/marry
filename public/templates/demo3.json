@@ -1,7 +1,7 @@
 {
   "name": "页面元素",
   "description": "不同页面元素展示",
-  "cover": "",
+  "cover": "./images/animals/10.jpg",
   "tags": ["演示", "测试"],
   "transition": {
     "direction": "vertical",
