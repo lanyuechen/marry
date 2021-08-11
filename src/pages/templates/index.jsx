@@ -7,8 +7,11 @@ import templates from './templates';
 
 export default () => {
 
-  const handleLink = async (id) => {
-    history.push(`/templates/${id}`);
+  const handleLink = async (item) => {
+    history.push({
+      pathname: `/templates/${item._id}`,
+      state: item
+    });
   }
 
   return (
@@ -18,7 +21,7 @@ export default () => {
           <Col key={d._id} span={12}>
             <Cover
               cover={d.cover}
-              onClick={() => handleLink(d._id)}
+              onClick={() => handleLink(d)}
             />
           </Col>
         ))}

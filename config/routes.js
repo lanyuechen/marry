@@ -4,7 +4,7 @@
 export default [
   // 模板预览页
   {
-    path: '/templates/:id',
+    path: '/templates/:id/view',
     component: '@/pages/templates/preview',
   },
   // 预览
@@ -30,6 +30,11 @@ export default [
       {
         path: '/templates',
         component: '@/pages/templates',
+      },
+      // 模板详情
+      {
+        path: '/templates/:id',
+        component: '@/pages/templates/detail',
       },
       // 个人页
       {

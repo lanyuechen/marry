@@ -13,7 +13,7 @@ export default function(props) {
           <Icon type="icon-home" />
           <span className={style.title}>首页</span>
         </NavLink>
-        <NavLink to="/templates" exact activeClassName={style.active}>
+        <NavLink to="/templates" activeClassName={style.active}>
           <Icon type="icon-card-bag" />
           <span className={style.title}>模板</span>
         </NavLink>
