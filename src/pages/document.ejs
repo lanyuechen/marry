@@ -6,6 +6,15 @@
   <title>花青素</title>
 </head>
 <body>
-
+  <div id="root"></div>
+  <svg width="0" height="0">
+    <filter id="book-cover-paper">
+      <feturbulence type="fractalNoise" baseFrequency=".95 .95" numOctaves="80" result="noise"></feturbulence>
+      <fediffuselighting in="noise" lightingColor="#004F85" surfaceScale=".8" result="grind">
+        <fedistantlight azimuth="500" elevation="50"></fedistantlight>
+      </fediffuselighting>
+      <fegaussianblur in="grind" stdDeviation=".5"></fegaussianblur>
+    </filter>
+  </svg>
 </body>
 </html>

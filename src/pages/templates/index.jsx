@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import { history } from 'umi';
 import Container from '@/components/container';
-import Card from '@/components/card';
+import Cover from '@/components/cover';
 import templates from './templates';
 
 export default () => {
@@ -15,13 +15,11 @@ export default () => {
     <Container>
       <Row gutter={[16, 16]}>
         {templates.map(d => (
-          <Col key={d._id} span={8}>
-            <Card
-              hoverable
+          <Col key={d._id} span={12}>
+            <Cover
+              cover={d.cover}
               onClick={() => handleLink(d._id)}
-            >
-              
-            </Card>
+            />
           </Col>
         ))}
       </Row>
