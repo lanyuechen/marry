@@ -4,7 +4,7 @@ import { history } from 'umi';
 import View from '@/components/view';
 import Icon from '@/components/icon';
 import Toolbox from '@/components/toolbox';
-import { getTemplate } from '@/utils/utils';
+import { fetchData } from '@/utils/utils';
 import * as storyService from '@/services/story';
 
 export default (props) => {
@@ -12,7 +12,7 @@ export default (props) => {
   const [ data, setData ] = useState();
 
   useEffect(() => {
-    getTemplate(id).then(res => {
+    fetchData(id).then(res => {
       setData(res);
     });
   }, [id]);

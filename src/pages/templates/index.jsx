@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col } from 'antd';
 import { history } from 'umi';
 import Container from '@/components/container';
 import Cover from '@/components/cover';
-import templates from './templates';
+import { fetchData } from '@/utils/utils';
 
 export default () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchData(id).then(res => {
+      setData(res);
+    });
+  }, []);
 
   const handleLink = async (item) => {
     history.push({
@@ -17,7 +24,7 @@ export default () => {
   return (
     <Container>
       <Row gutter={[16, 16]}>
-        {templates.map(d => (
+        {data.map(d => (
           <Col key={d._id} span={12}>
             <Cover
               cover={d.cover}

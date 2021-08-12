@@ -2,11 +2,12 @@ import React, { useMemo } from 'react';
 import { Drawer, Tabs } from 'antd';
 import { prepareElement } from '@/utils/prepare';
 
+import ImageProp from '@/components/elements/image/prop';
+import TextProp from '@/components/elements/text/prop';
+import IconProp from '@/components/elements/icon/prop';
+
 import GlobalProp from './global-prop';
 import PageProp from './page-prop';
-import ImageProp from './image-prop';
-import TextProp from './text-prop';
-import IconProp from './icon-prop';
 
 import style from './style.less';
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { history } from 'umi';
 import { Typography } from 'antd';
 import Cover from '@/components/cover';
-import { getTemplate } from '@/utils/utils';
+import { fetchData } from '@/utils/utils';
 
 import style from './style.less';
 
@@ -11,7 +11,7 @@ export default (props) => {
   const [data, setData] = useState(history.location.state);
 
   useEffect(() => {
-    getTemplate(id).then(res => {
+    fetchData(id).then(res => {
       setData(res);
     });
   }, [id]);

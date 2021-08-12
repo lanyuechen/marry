@@ -20,7 +20,7 @@ export function debounce(func, idle) {
   }
 }
 
-export async function getTemplate (id) {
+export async function fetchData(id) {
   const res = await fetch(`./templates/${id}.json`);
   return res.json();
 }

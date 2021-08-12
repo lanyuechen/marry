@@ -5,7 +5,7 @@ import PageContainer from '@/components/page-container';
 import ElementContainer from '@/components/element-container';
 import Audio from '@/components/audio';
 import Icon from '@/components/icon';
-import elements from '@/components/elements';
+import ELEMENTS from '@/components/elements';
 import prepare from '@/utils/prepare';
 
 import style from './style.less';
@@ -32,7 +32,7 @@ export default (props) => {
           <SwiperSlide key={page.id}>
             <PageContainer background={page.background}>
               {page.elements && page.elements.map((element, elementIdx) => {
-                const C = elements[element.type];
+                const C = ELEMENTS[element.type];
                 return (
                   <ElementContainer
                     key={elementIdx}
