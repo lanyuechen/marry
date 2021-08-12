@@ -9,7 +9,7 @@ export default () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetchData(id).then(res => {
+    fetchData('index').then(res => {
       setData(res);
     });
   }, []);
