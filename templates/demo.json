@@ -4,7 +4,7 @@
   "cover": "./images/animals/6.jpg",
   "tags": ["演示", "测试"],
   "audio": {
-    "src": "./demo.mp3",
+    "src": "./audio/love-is-greater.mp3",
     "autoPlay": true
   },
   "transition": {
