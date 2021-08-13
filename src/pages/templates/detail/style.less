@@ -1,7 +1,7 @@
 
 .banner {
   position: relative;
-  height: 240px;
+  height: 274px;
   overflow: hidden;
   isolation: isolate;
   .bg {
@@ -19,7 +19,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    padding: 16px;
+    padding: 56px 16px 16px 16px;
     display: flex;
     .pic {
       width: 152px;
@@ -31,7 +31,10 @@
       overflow: hidden;
       flex: auto;
       [class~=ant-typography] {
-        mix-blend-mode: none;
+        color: #fff;
+        font-weight: normal;
+        text-shadow: 1px 1px 3px #000;
+        // mix-blend-mode: difference;
       }
     }
   }

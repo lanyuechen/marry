@@ -1,8 +1,8 @@
 {
-  "name": "页面元素",
-  "description": "不同页面元素展示",
+  "name": "木瓜",
+  "description": "投我以木瓜，报之琚。匪报也，为好也！投我以木报之以琼瑶。匪报也，永以为好也！投我以木李，报之以琼玖。匪报也，永以为好也！",
   "cover": "./images/animals/7.jpg",
-  "tags": ["演示", "测试"],
+  "tags": ["诗经", "国风"],
   "transition": {
     "direction": "horizontal",
     "effect": "slide",
