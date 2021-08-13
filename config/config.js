@@ -6,5 +6,19 @@ export default {
   },
   publicPath: '/marry/',
   routes,
-  antd: {}
+  antd: {},
+  dynamicImport: {
+    loading: '@/components/loading',
+  },
+  nodeModulesTransform: {
+    type: 'none',
+    exclude: [],
+  },
+  targets: {
+    chrome: 80,
+    firefox: false,
+    safari: false,
+    edge: false,
+    ios: false,
+  },
 }
