@@ -4,6 +4,7 @@ import { Typography, Space, Button } from 'antd';
 import Icon from '@/components/icon';
 import Cover from '@/components/cover';
 import PageHeader from '@/components/page-header';
+import Gallery from '@/components/gallery';
 import { fetchData } from '@/utils/utils';
 import * as storyService from '@/services/story';
 
@@ -59,11 +60,9 @@ export default (props) => {
           </div>
         </div>
       </div>
-      {data && (
-        <div>
-          xxx
-        </div>
-      )}
+      <div>
+        <Gallery pages={data.pages} />
+      </div>
     </div>
   );
 }
