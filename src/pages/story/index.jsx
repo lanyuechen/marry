@@ -18,8 +18,11 @@ export default () => {
     }
   }
 
-  const handleView = async (id) => {
-    history.push(`/view/${id}`);
+  const handleLink = async (item) => {
+    history.push({
+      pathname: `/story/${item._id}`,
+      state: item
+    });
   }
 
   return (
@@ -29,7 +32,7 @@ export default () => {
           <Col key={d._id} span={12}>
             <Cover
               cover={d.cover}
-              onClick={() => handleView(d._id)}
+              onClick={() => handleLink(d)}
             />
           </Col>
         ))}

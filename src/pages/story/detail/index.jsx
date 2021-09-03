@@ -14,8 +14,10 @@ export default (props) => {
   const [data, setData] = useState(history.location.state);
 
   useEffect(() => {
-    fetchData(id).then(res => {
-      setData(res);
+    storyService.detail(id).then(res => {
+      if (res.success) {
+        setData(res.data);
+      }
     });
   }, [id]);
 
@@ -24,14 +26,11 @@ export default (props) => {
   }
 
   const handleView = () => {
-    history.push(`/templates/${id}/view`);
+    history.push(`/story/${id}/view`);
   }
 
   const handleEdit = async () => {
-    const res = await storyService.insert(data);
-    if (res.success) {
-      history.push(`/story/${res.data._id}/editor`);
-    }
+    history.push(`/story/${id}/editor`);
   }
 
   return (
@@ -49,9 +48,6 @@ export default (props) => {
               {data.description}
             </Typography.Paragraph>
             <Space className={style.tool}>
-              <Button danger size="small" ghost>
-                ¥9.9 购买
-              </Button>
               <Button type="primary" size="small" ghost onClick={handleView}>
                 预览
               </Button>

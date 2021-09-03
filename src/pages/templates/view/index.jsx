@@ -28,7 +28,7 @@ export default (props) => {
   const handleEdit = async () => {
     const res = await storyService.insert(data);
     if (res.success) {
-      history.push(`/editor/${res.data._id}`);
+      history.push(`/story/${res.data._id}/editor`);
     }
   }
 

@@ -2,20 +2,10 @@
  * 注意：路由定义的顺序会影响路由的解析
  */
 export default [
-  // 模板预览页
-  {
-    path: '/templates/:id/view',
-    component: '@/pages/templates/preview',
-  },
   // 预览
   {
     path: '/view/:id',
     component: '@/pages/view',
-  },
-  // 编辑
-  {
-    path: '/editor/:id',
-    component: '@/pages/editor',
   },
   {
     path: '/',
@@ -36,10 +26,30 @@ export default [
         path: '/templates/:id',
         component: '@/pages/templates/detail',
       },
-      // 个人页
+      // 模板预览
       {
-        path: '/my',
-        component: '@/pages/my',
+        path: '/templates/:id/view',
+        component: '@/pages/templates/view',
+      },
+      // 请柬列表
+      {
+        path: '/story',
+        component: '@/pages/story',
+      },
+      // 请柬详情
+      {
+        path: '/story/:id',
+        component: '@/pages/story/detail',
+      },
+      // 请柬预览
+      {
+        path: '/story/:id/view',
+        component: '@/pages/story/view',
+      },
+      // 请柬编辑
+      {
+        path: '/story/:id/editor',
+        component: '@/pages/story/editor',
       },
     ]
   },

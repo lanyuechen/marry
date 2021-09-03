@@ -49,7 +49,7 @@ export default (props) => {
   }
 
   const handleBack = () => {
-    history.push('/my');
+    history.push('/story');
   }
 
   const handleRemove = () => {

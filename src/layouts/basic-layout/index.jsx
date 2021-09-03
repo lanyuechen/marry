@@ -17,7 +17,7 @@ export default function(props) {
           <Icon type="icon-card-bag" />
           <span className={style.title}>模板</span>
         </NavLink>
-        <NavLink to="/my" exact activeClassName={style.active}>
+        <NavLink to="/story" exact activeClassName={style.active}>
           <Icon type="icon-001-man" />
           <span className={style.title}>我的</span>
         </NavLink>
