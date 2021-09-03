@@ -5,6 +5,8 @@ import ElementContainer from '@/components/element-container';
 import ELEMENTS from '@/components/elements';
 import { preparePages } from '@/utils/prepare';
 
+import style from './style.less';
+
 export default (props) => {
   const spaceBetween = 0;
   const [pages, pageSize] = useMemo(() => {
@@ -16,39 +18,41 @@ export default (props) => {
   }, [props.pages]);
 
   return (
-    <Swiper
-      style={{height: 200}}
-      slidesPerView={3}
-      spaceBetween={spaceBetween}
-      effect="coverflow"
-      // freeMode
-      centeredSlides
-      pagination={{
-        clickable: true
-      }}
-    >
-      {pages.map((page) => (
-        <SwiperSlide key={page.id}>
-          <PageContainer background={page.background}>
-            {page.elements && page.elements.map((element, elementIdx) => {
-              const C = ELEMENTS[element.type];
-              return (
-                <ElementContainer
-                  key={elementIdx}
-                  position={element.position}
-                  pageSize={pageSize}
-                  size={element.size}
-                  rotation={element.rotation}
-                  clip={element.clip}
-                  animation={false}
-                >
-                  <C {...element.props} size={element.size} />
-                </ElementContainer>
-              );
-            })}
-          </PageContainer>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className={style.gallery}>
+      <Swiper
+        style={{height: 200}}
+        slidesPerView={3}
+        spaceBetween={spaceBetween}
+        effect="coverflow"
+        // freeMode
+        centeredSlides
+        pagination={{
+          clickable: true
+        }}
+      >
+        {pages.map((page) => (
+          <SwiperSlide key={page.id}>
+            <PageContainer background={page.background}>
+              {page.elements && page.elements.map((element, elementIdx) => {
+                const C = ELEMENTS[element.type];
+                return (
+                  <ElementContainer
+                    key={elementIdx}
+                    position={element.position}
+                    pageSize={pageSize}
+                    size={element.size}
+                    rotation={element.rotation}
+                    clip={element.clip}
+                    animation={false}
+                  >
+                    <C {...element.props} size={element.size} />
+                  </ElementContainer>
+                );
+              })}
+            </PageContainer>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 }
