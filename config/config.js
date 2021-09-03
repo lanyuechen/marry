@@ -1,6 +1,7 @@
 import routes from './routes';
 
 export default {
+  title: '花青素',
   history: {
     type: 'hash'
   },

@@ -6,8 +6,8 @@ html, body, #root {
 }
 
 #root {
-  background: url(./assets/images/paper.jpg);
-  background-size: cover;
+  background-color: #ebf1f4;
+  background-image: linear-gradient(124deg, #e3f6f5 0%, #fff 100%);
 }
 
 /* #root::before{
