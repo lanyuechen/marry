@@ -16,7 +16,7 @@ export default function(props) {
     <div className={style.layout}>
       {props.children}
 
-      {['/', '/template', 'story'].includes(pathname) && (
+      {['/', '/template', '/story'].includes(pathname) && (
         <div className={style.navbar}>
           <Link to="/" className={pathname === '/' ? style.active : ''}>
             <Icon type="icon-home" />
