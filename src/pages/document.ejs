@@ -4,9 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>花青素</title>
+  <script src="/lottie-player.js"></script>
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <style>
+      .loading {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+    <div class="loading">
+      <lottie-player
+        src="/loading.json"
+        background="transparent"
+        speed="1"
+        style="width: 100px; height: 100px;"
+        loop
+        autoplay
+      />
+    </div>
+  </div>
   <svg width="0" height="0">
     <filter id="book-cover-paper">
       <feturbulence type="fractalNoise" baseFrequency=".95 .95" numOctaves="80" result="noise"></feturbulence>

@@ -4,6 +4,10 @@
 export default [
   // 预览
   {
+    path: '/test',
+    component: '@/pages/test',
+  },
+  {
     path: '/view/:id',
     component: '@/pages/view',
   },
