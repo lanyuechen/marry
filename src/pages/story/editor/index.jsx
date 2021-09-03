@@ -5,6 +5,7 @@ import { history } from 'umi';
 import View from '@/components/view';
 import Icon from '@/components/icon';
 import Toolbox from '@/components/toolbox';
+import PageHeader from '@/components/page-header';
 
 import PropDrawer from './prop-drawer';
 
@@ -66,6 +67,7 @@ export default (props) => {
 
   return (
     <>
+      <PageHeader title={data.name} />
       <PropDrawer
         data={data}
         pageIdx={currentPageIdx}
@@ -80,9 +82,6 @@ export default (props) => {
       />
 
       <Toolbox>
-        <Button shape="circle" onClick={handleBack}>
-          <Icon type="icon-back" />
-        </Button>
         <Popconfirm
           title="覆水难收，你确定要删除这个请柬吗？"
           okText="嗯"

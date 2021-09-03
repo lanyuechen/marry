@@ -16,7 +16,7 @@ export default () => {
 
   const handleLink = async (item) => {
     history.push({
-      pathname: `/templates/${item._id}`,
+      pathname: `/template/${item._id}`,
       state: item
     });
   }

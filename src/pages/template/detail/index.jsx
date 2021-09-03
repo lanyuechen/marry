@@ -24,7 +24,7 @@ export default (props) => {
   }
 
   const handleView = () => {
-    history.push(`/templates/${id}/view`);
+    history.push(`/template/${id}/view`);
   }
 
   const handleEdit = async () => {

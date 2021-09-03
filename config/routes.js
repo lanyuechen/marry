@@ -18,18 +18,18 @@ export default [
       },
       // 模板列表
       {
-        path: '/templates',
-        component: '@/pages/templates',
+        path: '/template',
+        component: '@/pages/template',
       },
       // 模板详情
       {
-        path: '/templates/:id',
-        component: '@/pages/templates/detail',
+        path: '/template/:id',
+        component: '@/pages/template/detail',
       },
       // 模板预览
       {
-        path: '/templates/:id/view',
-        component: '@/pages/templates/view',
+        path: '/template/:id/view',
+        component: '@/pages/template/view',
       },
       // 请柬列表
       {
