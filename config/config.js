@@ -8,9 +8,9 @@ export default {
   publicPath: '/marry/',
   routes,
   antd: {},
-  dynamicImport: {
-    loading: '@/components/loading',
-  },
+  // dynamicImport: {
+  //   loading: '@/components/loading',
+  // },
   nodeModulesTransform: {
     type: 'none',
     exclude: [],
