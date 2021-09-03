@@ -37,7 +37,7 @@ export default (props) => {
 
   const element = useMemo(() => {
     const ele = data.pages[pageIdx]?.elements?.[elementIdx];
-    return ele && prepareElement(ele);
+    return ele && prepareElement(ele, { width: window.innerWidth, height: window.innerHeight });
   }, [data, pageIdx, elementIdx]);
 
   const PropForm = useMemo(() => {

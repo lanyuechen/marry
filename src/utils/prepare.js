@@ -2,7 +2,7 @@ import { uuid } from '@/utils/utils';
 
 import CLIP from '@/constants/clip';
 
-export default (data) => {
+export default (data, pageSize = { width: window.innerWidth, height: window.innerHeight }) => {
 
   return {
     ...data,
@@ -10,28 +10,35 @@ export default (data) => {
       direction: 'vertical',
       effect: 'slide'
     },
-    pages: data.pages.map(preparePage),
+    pages: preparePages(data.pages, pageSize),
   }
 }
 
-export const preparePage = (page) => {
+export const preparePages = (pages, pageSize) => {
+  if (!pages) {
+    return [];
+  }
+  return pages.map((page) => preparePage(page, pageSize));
+}
+
+export const preparePage = (page, pageSize) => {
   return {
     ...page,
     id: uuid(),
-    elements: page.elements.map(prepareElement),
+    elements: page.elements.map((element) => prepareElement(element, pageSize)),
   }
 }
 
-export const prepareElement = (element) => {
+export const prepareElement = (element, pageSize) => {
   return {
     ...element,
     position: [
-      prepareUnit(element.position[0], window.innerWidth),
-      prepareUnit(element.position[1], window.innerHeight),
+      prepareUnit(element.position[0], pageSize.width),
+      prepareUnit(element.position[1], pageSize.height),
     ],
     size: [
-      prepareUnit(element.size[0], window.innerWidth),
-      prepareUnit(element.size[1], window.innerHeight),
+      prepareUnit(element.size[0], pageSize.width),
+      prepareUnit(element.size[1], pageSize.height),
     ],
     clip: prepareClip(element.clip),
   }
@@ -57,7 +64,7 @@ export const prepareClip = (clip) => {
 /**
  * 尺寸单位统一为像素
  * @param {string|number} value 被转换的数值
- * @param {number} base 基础值，宽度计算为window.innerWidth；高度计算为window.innerHeight
+ * @param {number} base 最大尺寸，将value映射在[0: base]上
  */
 export const prepareUnit = (value, base) => {
   if (!value || typeof value === 'number') {
@@ -71,11 +78,11 @@ export const prepareUnit = (value, base) => {
   }
 }
 
-export const prepareKeyframes = (animation, target) => {
+export const prepareKeyframes = (animation, target, pageSize) => {
   animation = animation || {};
   const { position, size, rotation } = target;
-  const width = prepareUnit(size[0], window.innerWidth);
-  const height = prepareUnit(size[1], window.innerHeight);
+  const width = prepareUnit(size[0], pageSize.width);
+  const height = prepareUnit(size[1], pageSize.height);
   const dMap = {
     slideInLeft: { // 左侧滑入
       translateX: -width,
@@ -86,28 +93,28 @@ export const prepareKeyframes = (animation, target) => {
       translateY: -height,
     },
     slideInRight: { // 右侧滑入
-      translateX: window.innerWidth + width,
+      translateX: pageSize.width + width,
       translateY: position[1],
     },
     slideInBottom: { // 下侧滑入
       translateX: position[0],
-      translateY: window.innerHeight + height,
+      translateY: pageSize.height + height,
     },
     slideInLeftTop: { // 左上侧滑入
       translateX: -width,
       translateY: -height,
     },
     slideInRightTop: { // 右上侧滑入
-      translateX: window.innerWidth + width,
+      translateX: pageSize.width + width,
       translateY: -height,
     },
     slideInLeftBottom: { // 左下侧滑入
       translateX: -width,
-      translateY: window.innerHeight + height,
+      translateY: pageSize.height + height,
     },
     slideInRightBottom: { // 右下侧滑入
-      translateX: window.innerWidth + width,
-      translateY: window.innerHeight + height,
+      translateX: pageSize.width + width,
+      translateY: pageSize.height + height,
     }
   }
 

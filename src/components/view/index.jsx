@@ -38,6 +38,7 @@ export default (props) => {
                     key={elementIdx}
                     entrance={currentIdx === pageIdx}
                     position={element.position}
+                    pageSize={{width: window.innerWidth, height: window.innerHeight}}
                     size={element.size}
                     rotation={element.rotation}
                     clip={element.clip}

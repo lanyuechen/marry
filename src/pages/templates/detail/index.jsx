@@ -60,7 +60,7 @@ export default (props) => {
           </div>
         </div>
       </div>
-      <div>
+      <div className={style.gallery}>
         <Gallery pages={data.pages} />
       </div>
     </div>

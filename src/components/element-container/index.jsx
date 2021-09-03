@@ -9,6 +9,7 @@ import style from './style.css';
 export default (props) => {
   const {
     position,
+    pageSize,
     size,
     rotation,
     clip,
@@ -20,7 +21,7 @@ export default (props) => {
   const ref = useRef();
   const store = useRef();
 
-  const [ firstKeyFrame, ...keyframes ] = prepareKeyframes(animation, { position, size, rotation });
+  const [ firstKeyFrame, ...keyframes ] = prepareKeyframes(animation, { position, size, rotation }, pageSize);
   const initState = prepareInitState(firstKeyFrame);  // 元素初始状态
 
   useEffect(() => {
