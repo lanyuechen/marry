@@ -8,15 +8,12 @@ export default (props) => {
   const { cover, width, onClick } = props;
   return (
     <AspectCard aspect={1.414} width={width}>
-      <div className={style.bookCover} onClick={onClick}>
-        <div className={style.paper}></div>
-        <div className={style.book}>
-          <div className={style.cover}>
-            <img src={LINE} style={{backgroundImage: `url(${cover})`}} />
-            <div className={style.paper}></div>
-          </div>
-          <img src={LINE} className={style.corner} style={{backgroundImage: `url(${cover})`}} />
+      <div className={style.book} onClick={onClick}>
+        <div className={style.cover}>
+          <img src={LINE} style={{backgroundImage: `url(${cover})`}} />
+          <div className={style.paper}></div>
         </div>
+        <img src={LINE} className={style.corner} style={{backgroundImage: `url(${cover})`}} />
       </div>
     </AspectCard>
   )
