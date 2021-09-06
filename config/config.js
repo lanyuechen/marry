@@ -1,11 +1,16 @@
 import routes from './routes';
 
+let publicPath = '/marry/';
+if (process.env.NODE_ENV === 'production') {
+  publicPath = 'https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/';
+}
+
 export default {
   title: '花青素',
   history: {
     type: 'hash'
   },
-  publicPath: '/marry/',
+  publicPath,  // jsdelivr cdn 加速
   routes,
   antd: {},
   // dynamicImport: {

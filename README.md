@@ -8,6 +8,8 @@
 - react-easy-crop 图片裁切
 - immutability-helper 不可变对象
 
+- jsdelivr加速（eg: https://cdn.jsdelivr.net/gh/lanyuechen/marry/README.md）
+
 ## 可能使用到的技术
 
 - [pica](https://github.com/nodeca/pica) 用于图片压缩
