@@ -6,7 +6,7 @@ import PageHeader from '@/components/page-header';
 export default function() {
   return (
     <Container style={{paddingTop: 56}}>
-      <PageHeader title="首页" showBack={false} />
+      <PageHeader title="首页" backIcon={false} />
       <Loading />
     </Container>
   );

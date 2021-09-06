@@ -14,7 +14,6 @@ export default (props) => {
     <PageHeader
       className={style.header}
       onBack={handleBack}
-      backIcon={props.showBack}
       {...props}
     />
   );

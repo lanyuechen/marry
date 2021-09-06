@@ -28,7 +28,7 @@ export default () => {
 
   return (
     <Container style={{paddingTop: 56}}>
-      <PageHeader title="我的请柬" showBack={false} />
+      <PageHeader title="我的请柬" backIcon={false} />
       <Row gutter={[16, 16]}>
         {data.map(d => (
           <Col key={d._id} span={12}>
