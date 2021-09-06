@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import update from 'immutability-helper';
-import { Button, Popconfirm } from 'antd';
+import { Button } from 'antd';
 import { history } from 'umi';
 import View from '@/components/view';
 import Icon from '@/components/icon';
@@ -49,18 +49,6 @@ export default (props) => {
     });
   }
 
-  const handleBack = () => {
-    history.push('/story');
-  }
-
-  const handleRemove = () => {
-    storyService.remove(id).then(res => {
-      if (res.success) {
-        handleBack();
-      }
-    });
-  }
-
   const handleView = async () => {
     history.push(`/view/${id}`);
   }
@@ -82,17 +70,6 @@ export default (props) => {
       />
 
       <Toolbox>
-        <Popconfirm
-          title="覆水难收，你确定要删除这个请柬吗？"
-          okText="嗯"
-          cancelText="算了吧"
-          placement="topRight"
-          onConfirm={handleRemove}
-        >
-          <Button shape="circle">
-            <Icon type="icon-dustbin" />
-          </Button>
-        </Popconfirm>
         <Button shape="circle" onClick={handleView}>
           <Icon type="icon-view" />
         </Button>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { history } from 'umi';
-import { Button } from 'antd';
+import { Button, Popconfirm } from 'antd';
 import PageHeader from '@/components/page-header';
 import Banner from '@/components/banner';
 import Gallery from '@/components/gallery';
@@ -30,6 +30,14 @@ export default (props) => {
     history.push(`/story/${id}/editor`);
   }
 
+  const handleRemove = () => {
+    storyService.remove(id).then(res => {
+      if (res.success) {
+        history.replace(`/story`);
+      }
+    });
+  }
+
   return (
     <div>
       <PageHeader title={data.name} />
@@ -38,8 +46,17 @@ export default (props) => {
         description={data.description}
         cover={data.cover}
         extra={[
-          <Button type="primary" size="small" ghost onClick={handleView}>预览</Button>,
-          <Button type="primary" size="small" ghost onClick={handleEdit}>编辑</Button>,
+          <Popconfirm
+            key="remove"
+            title="覆水难收，你确定要删除这个请柬吗？"
+            okText="嗯"
+            cancelText="算了吧"
+            onConfirm={handleRemove}
+          >
+            <Button danger size="small" ghost>删除</Button>
+          </Popconfirm>,
+          <Button key="view" type="primary" size="small" ghost onClick={handleView}>预览</Button>,
+          <Button key="deit" type="primary" size="small" ghost onClick={handleEdit}>编辑</Button>,
         ]}
       />
       <Gallery pages={data.pages} />
