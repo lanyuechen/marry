@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link, history } from 'umi';
+import { Link, history, useLocation } from 'umi';
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Icon from '@/components/icon';
 
 import style from './style.less';
 
 export default function(props) {
   const [pathname, setPathname] = useState('/');
+  const location = useLocation();
+
   useEffect(() => {
     return history.listen((location) => {
       setPathname(location.pathname);
@@ -14,7 +17,11 @@ export default function(props) {
 
   return (
     <div className={style.layout}>
-      {props.children}
+      <TransitionGroup style={{height: '100%'}}>
+        <CSSTransition key={location.pathname} classNames="fade" timeout={300}>
+          {props.children}
+        </CSSTransition>
+      </TransitionGroup>
 
       {['/', '/template', '/story'].includes(pathname) && (
         <div className={style.navbar}>

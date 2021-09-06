@@ -40,9 +40,9 @@ export default (props) => {
         description={data.description}
         cover={data.cover}
         extra={[
-          <Button danger size="small" ghost>¥9.9 购买</Button>,
-          <Button type="primary" size="small" ghost onClick={handleView}>预览</Button>,
-          <Button type="primary" size="small" ghost onClick={handleEdit}>编辑</Button>,
+          <Button key="buy" danger size="small" ghost>¥9.9 购买</Button>,
+          <Button key="view" type="primary" size="small" ghost onClick={handleView}>预览</Button>,
+          <Button key="edit" type="primary" size="small" ghost onClick={handleEdit}>编辑</Button>,
         ]}
       />
       <Gallery pages={data.pages} />
