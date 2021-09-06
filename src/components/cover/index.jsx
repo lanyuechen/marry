@@ -1,4 +1,5 @@
 import React from 'react';
+import { Image } from 'antd';
 import AspectCard from '@/components/aspect-card';
 import style from './style.less';
 
@@ -9,10 +10,8 @@ export default (props) => {
   return (
     <AspectCard aspect={1.414} width={width}>
       <div className={style.book} onClick={onClick}>
-        <div className={style.cover}>
-          <img src={LINE} style={{backgroundImage: `url(${cover})`}} />
-          <div className={style.paper}></div>
-        </div>
+        <div className={style.paper} />
+        <img src={LINE} style={{backgroundImage: `url(${cover})`}} />
         <img src={LINE} className={style.corner} style={{backgroundImage: `url(${cover})`}} />
       </div>
     </AspectCard>

@@ -12,14 +12,29 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
-  box-shadow: -55px 40px 30px 0 rgba(0, 0, 0, .1),
-              -27px 25px 35px -5px rgba(0, 0, 0, .2),
-              -10px 10px 15px 5px rgba(0, 0, 0, .1),
-              -12px 12px 10px 0 rgba(0, 0, 0, .2),
-              -7px 7px 8px 0 rgba(0, 0, 0, .1),
-              -5px 5px 5px 0 rgba(0, 0, 0, .2),
-              -2px 2px 3px 0 rgba(0, 0, 0, .3);
+  box-shadow: 
+    -55px 40px 30px 0 rgba(0, 0, 0, .1),
+    -27px 25px 35px -5px rgba(0, 0, 0, .2),
+    -10px 10px 15px 5px rgba(0, 0, 0, .1),
+    -12px 12px 10px 0 rgba(0, 0, 0, .2),
+    -7px 7px 8px 0 rgba(0, 0, 0, .1),
+    -5px 5px 5px 0 rgba(0, 0, 0, .2),
+    -2px 2px 3px 0 rgba(0, 0, 0, .3);
   // filter: drop-shadow(-20px 20px 15px rgba(0, 0, 0, .65));
+  /* 折痕 */
+  &::after {
+    content: '';
+    .fill();
+    z-index: 3;
+    background-repeat: no-repeat;
+    background-image: 
+      /* 1. 这条渐变是比较明显的那道折痕 */
+      linear-gradient(to right, rgba(0, 0, 0, 0.2) 0, rgba(255, 255, 255, 0.08) 0%, transparent 0.5%),
+      /* 2. 这条1像素的渐变是封面最左侧的折痕（没有暗面） */
+      linear-gradient(to right, rgba(0, 0, 0, 0.1) 0.3%, rgba(255, 255, 255, 0.09) 1.1%, transparent 1.3%);
+    background-size: 50% 100%, 50% 100%;
+    background-position: 0% top, 9% top;
+  }
   img {
     width: 100%;
     height: 100%;
@@ -29,45 +44,32 @@
     background-color: rgba(0, 0, 0, 0);
     background-origin: content-box;
     background-size: cover;
+    object-fit: cover;
+  }
+  .corner {
     filter: blur(1px);
+    z-index: 1
   }
   .cover {
-    .fill();
-    z-index: 1;
-    img {
-      filter: none;
-    }
-    &::after {
-      content: '';
-      .fill();
-      background: radial-gradient(ellipse at 100% 0%, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.06) 30%, rgba(255, 255, 255, 0.02) 50%, rgba(0, 0, 0, .3));
-    }
+    z-index: 2
   }
-  .paper {
+}
+
+.paper {
+  .fill();
+  mix-blend-mode: hard-light;
+  opacity: 0.2;
+  overflow: hidden;
+  &::before {
+    content: '';
     .fill();
-    mix-blend-mode: hard-light;
-    opacity: 0.2;
-    overflow: hidden;
-    &::before {
-      content: '';
-      .fill();
-      // filter: url(#book-cover-paper);
-      background: url(~@/assets/images/paper.jpg);
-      background-size: cover;
-    }
-    &::after {
-      content: '';
-      .fill();
-      background: radial-gradient(ellipse at 100% 0%, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.18) 50%, rgba(255, 255, 255, 0.15) 70%, rgba(0, 0, 0, .1));
-    }
+    // filter: url(#book-cover-paper);
+    background: url(~@/assets/images/paper.jpg);
+    background-size: cover;
   }
   &::after {
     content: '';
     .fill();
-    z-index: 2;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0, rgba(255, 255, 255, 0.08) 0%, transparent 0.5%), linear-gradient(to right, rgba(0, 0, 0, 0.1) 0.3%, rgba(255, 255, 255, 0.09) 1.1%, transparent 1.3%);
-    background-size: 50% 100%, 50% 100%;
-    background-position: 0% top, 9% top;
+    background: radial-gradient(ellipse at 100% 0%, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.18) 50%, rgba(255, 255, 255, 0.15) 70%, rgba(0, 0, 0, .1));
   }
 }
