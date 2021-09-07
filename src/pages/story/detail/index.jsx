@@ -4,11 +4,14 @@ import { Button, Popconfirm } from 'antd';
 import PageHeader from '@/components/page-header';
 import Banner from '@/components/banner';
 import Gallery from '@/components/gallery';
+import Resource from '@/components/resource';
 import * as storyService from '@/services/story';
 
 export default (props) => {
   const { id } = props.match.params;
   const [data, setData] = useState(history.location.state);
+  const [pageIdx, setPageIdx] = useState(0);
+  const [elementIdx, setElementIdx] = useState(0);
 
   useEffect(() => {
     storyService.detail(id).then(res => {
@@ -38,6 +41,11 @@ export default (props) => {
     });
   }
 
+  const handleSlideChange = (pageIdx, elementIdx) => {
+    setPageIdx(pageIdx);
+    setElementIdx(elementIdx);
+  }
+
   return (
     <div>
       <PageHeader title={data.name} />
@@ -59,7 +67,8 @@ export default (props) => {
           <Button key="deit" type="primary" size="small" ghost onClick={handleEdit}>编辑</Button>,
         ]}
       />
-      <Gallery pages={data.pages} />
+      <Gallery pages={data.pages} activeIndex={pageIdx} onSlideChange={handleSlideChange} />
+      <Resource pages={data.pages} activeIndex={elementIdx} onSlideChange={handleSlideChange} />
     </div>
   );
 }

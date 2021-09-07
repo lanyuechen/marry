@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import PageContainer from '@/components/page-container';
 import ElementContainer from '@/components/element-container';
@@ -8,14 +8,38 @@ import { preparePages } from '@/utils/prepare';
 import style from './style.less';
 
 export default (props) => {
+  const { pages, activeIndex, onSlideChange } = props;
+  const ref = useRef();
   const spaceBetween = 0;
-  const [pages, pageSize] = useMemo(() => {
+  const [data, pageSize] = useMemo(() => {
     const pageSize = { width: (window.innerWidth - spaceBetween) / 3, height: 200 }
+    let lastPage;
     return [
-      preparePages(props.pages, pageSize),
-      pageSize
+      preparePages(pages, pageSize).map((page, i) => {
+        let elementIdx = 0;
+        if (lastPage) {
+          elementIdx = lastPage.elementIdx + lastPage.elements.filter(element => element.type === 'image').length;
+        }
+        lastPage = {
+          ...page,
+          elementIdx,
+        };
+        return lastPage;
+      }),
+      pageSize,
     ];
-  }, [props.pages]);
+  }, [pages]);
+
+  useEffect(() => {
+    if (ref.current && ref.current.activeIndex !== activeIndex) {
+      ref.current.slideTo(activeIndex);
+    }
+  }, [activeIndex]);
+
+  const handleSlideChange = (idx) => {
+    const current = data[idx];
+    onSlideChange && onSlideChange(idx, current.elementIdx);
+  }
 
   return (
     <div className={style.gallery}>
@@ -24,13 +48,14 @@ export default (props) => {
         slidesPerView={3}
         spaceBetween={spaceBetween}
         effect="coverflow"
-        // freeMode
         centeredSlides
+        onSwiper={(swiper => ref.current = swiper)}
+        onSlideChange={(swiper) => handleSlideChange(swiper.activeIndex)}
         pagination={{
           clickable: true
         }}
       >
-        {pages.map((page) => (
+        {data.map((page) => (
           <SwiperSlide key={page.id}>
             <PageContainer background={page.background}>
               {page.elements && page.elements.map((element, elementIdx) => {
