@@ -10,7 +10,7 @@ import style from './style.less';
 export default (props) => {
   const { pages, activeIndex, onSlideChange } = props;
   const ref = useRef();
-  const spaceBetween = 0;
+  const spaceBetween = 16;
   const [data, pageSize] = useMemo(() => {
     const pageSize = { width: (window.innerWidth - spaceBetween) / 3, height: 200 }
     let lastPage;
@@ -47,10 +47,10 @@ export default (props) => {
         style={{height: 200}}
         slidesPerView={3}
         spaceBetween={spaceBetween}
-        effect="coverflow"
+        // effect="coverflow"
         centeredSlides
         onSwiper={(swiper => ref.current = swiper)}
-        onSlideChangeTransitionEnd={(swiper) => handleSlideChange(swiper.activeIndex)}
+        onSlideChangeTransitionStart={(swiper) => handleSlideChange(swiper.activeIndex)}
         pagination={{
           clickable: true
         }}

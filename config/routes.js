@@ -2,7 +2,6 @@
  * 注意：路由定义的顺序会影响路由的解析
  */
 export default [
-  // 预览
   {
     path: '/test',
     component: '@/pages/test',
