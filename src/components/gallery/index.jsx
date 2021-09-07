@@ -32,7 +32,7 @@ export default (props) => {
 
   useEffect(() => {
     if (ref.current && ref.current.activeIndex !== activeIndex) {
-      ref.current.slideTo(activeIndex);
+      ref.current.slideTo(activeIndex, 300, false);
     }
   }, [activeIndex]);
 
@@ -50,7 +50,7 @@ export default (props) => {
         effect="coverflow"
         centeredSlides
         onSwiper={(swiper => ref.current = swiper)}
-        onSlideChange={(swiper) => handleSlideChange(swiper.activeIndex)}
+        onSlideChangeTransitionStart={(swiper) => handleSlideChange(swiper.activeIndex)}
         pagination={{
           clickable: true
         }}
