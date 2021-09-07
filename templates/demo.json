@@ -1,7 +1,7 @@
 {
   "name": "关雎",
   "description": "关关雎鸠，在河之洲，窈窕淑女，君子好逑",
-  "cover": "./images/animals/6.jpg",
+  "cover": "https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/images/animals/6.jpg",
   "tags": ["诗经", "国风"],
   "audio": {
     "src": "./audio/love-is-greater.mp3",
@@ -19,7 +19,7 @@
         {
           "type": "image",
           "props": {
-            "src": "./images/animals/1.jpg"
+            "src": "https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/images/animals/1.jpg"
           },
           "position": [0, 0],
           "size": ["100%", 300],
@@ -31,7 +31,7 @@
         {
           "type": "image",
           "props": {
-            "src": "./images/animals/2.jpg"
+            "src": "https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/images/animals/2.jpg"
           },
           "position": ["5%", 320],
           "size": ["90%", 200],
@@ -53,7 +53,7 @@
         {
           "type": "image",
           "props": {
-            "src": "./images/animals/3.jpg"
+            "src": "https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/images/animals/3.jpg"
           },
           "position": [0, 0],
           "size": ["100%", "30%"],
@@ -65,7 +65,7 @@
         {
           "type": "image",
           "props": {
-            "src": "./images/animals/4.jpg"
+            "src": "https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/images/animals/4.jpg"
           },
           "position": [0, "30%"],
           "size": ["100%", "40%"],
@@ -78,7 +78,7 @@
         {
           "type": "image",
           "props": {
-            "src": "./images/animals/5.jpg"
+            "src": "https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/images/animals/5.jpg"
           },
           "position": [0, "70%"],
           "size": ["100%", "30%"],
@@ -96,7 +96,7 @@
         {
           "type": "image",
           "props": {
-            "src": "./images/animals/6.jpg"
+            "src": "https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/images/animals/6.jpg"
           },
           "position": [0, 0],
           "size": ["100%", "100%"],

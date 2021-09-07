@@ -1,7 +1,7 @@
 {
   "name": "木瓜",
   "description": "投我以木瓜，报之琚。匪报也，为好也！投我以木报之以琼瑶。匪报也，永以为好也！投我以木李，报之以琼玖。匪报也，永以为好也！",
-  "cover": "./images/animals/7.jpg",
+  "cover": "https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/images/animals/7.jpg",
   "tags": ["诗经", "国风"],
   "transition": {
     "direction": "horizontal",
@@ -15,7 +15,7 @@
         {
           "type": "image",
           "props": {
-            "src": "./images/animals/1.jpg"
+            "src": "https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/images/animals/1.jpg"
           },
           "position": [0, 0],
           "size": ["100%", 300],
