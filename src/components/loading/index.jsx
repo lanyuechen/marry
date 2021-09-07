@@ -6,7 +6,7 @@ export default () => {
   return (
     <div className={style.loading}>
       <lottie-player
-        src="./loading.json"
+        src="https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/loading.json"
         background="transparent"
         speed="1"
         style={{width: 100, height: 100}}

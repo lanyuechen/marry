@@ -1,7 +1,7 @@
 {
   "name": "硕鼠",
   "description": "硕鼠硕鼠，无食我黍！三岁贯女，莫我肯顾。逝将去女，适彼乐土。乐土乐土，爰得我所。 硕鼠硕鼠，无食我麦！三岁贯女，莫我肯德。逝将去女，适彼乐国。乐国乐国，爰得我直。硕鼠硕鼠，无食我苗！三岁贯女，莫我肯劳。逝将去女，适彼乐郊。乐郊乐郊，谁之永号？",
-  "cover": "./images/animals/10.jpg",
+  "cover": "https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/images/animals/10.jpg",
   "tags": ["诗经", "国风"],
   "transition": {
     "direction": "vertical",
