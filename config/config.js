@@ -10,6 +10,7 @@ export default {
   history: {
     type: 'hash'
   },
+  hash: true,
   publicPath,  // jsdelivr cdn 加速
   routes,
   antd: {},
