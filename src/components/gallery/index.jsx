@@ -50,7 +50,7 @@ export default (props) => {
         effect="coverflow"
         centeredSlides
         onSwiper={(swiper => ref.current = swiper)}
-        onSlideChangeTransitionStart={(swiper) => handleSlideChange(swiper.activeIndex)}
+        onSlideChangeTransitionEnd={(swiper) => handleSlideChange(swiper.activeIndex)}
         pagination={{
           clickable: true
         }}

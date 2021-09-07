@@ -40,7 +40,7 @@ export default (props) => {
         style={{height: 200}}
         centeredSlides
         onSwiper={(swiper => ref.current = swiper)}
-        onSlideChangeTransitionStart={(swiper) => handleSlideChange(swiper.activeIndex)}
+        onSlideChangeTransitionEnd={(swiper) => handleSlideChange(swiper.activeIndex)}
         pagination={{
           clickable: true
         }}
