@@ -25,21 +25,32 @@ export const preparePage = (page, pageSize) => {
   return {
     ...page,
     id: uuid(),
-    elements: page.elements.map((element) => prepareElement(element, pageSize)),
+    elements: prepareElements(page.elements, pageSize),
   }
 }
 
+export const prepareElements = (elements, pageSize) => {
+  if (!elements) {
+    return [];
+  }
+  return elements.map((element) => prepareElement(element, pageSize))
+}
+
 export const prepareElement = (element, pageSize) => {
+  const position = [
+    prepareUnit(element.position[0], pageSize.width),
+    prepareUnit(element.position[1], pageSize.height),
+  ];
+  const size = [
+    prepareUnit(element.size[0], pageSize.width),
+    prepareUnit(element.size[1], pageSize.height),
+  ];
+
   return {
     ...element,
-    position: [
-      prepareUnit(element.position[0], pageSize.width),
-      prepareUnit(element.position[1], pageSize.height),
-    ],
-    size: [
-      prepareUnit(element.size[0], pageSize.width),
-      prepareUnit(element.size[1], pageSize.height),
-    ],
+    animation: element.animation || {},
+    position,
+    size,
     clip: prepareClip(element.clip),
   }
 }
@@ -76,80 +87,4 @@ export const prepareUnit = (value, base) => {
   } else if (/v[hw]/) {
     return base * parseFloat(value) / 100;
   }
-}
-
-export const prepareKeyframes = (animation, target, pageSize) => {
-  animation = animation || {};
-  const { position, size, rotation } = target;
-  const width = prepareUnit(size[0], pageSize.width);
-  const height = prepareUnit(size[1], pageSize.height);
-  const dMap = {
-    slideInLeft: { // 左侧滑入
-      translateX: -width,
-      translateY: position[1],
-    },
-    slideInTop: { // 上侧滑入
-      translateX: position[0],
-      translateY: -height,
-    },
-    slideInRight: { // 右侧滑入
-      translateX: pageSize.width + width,
-      translateY: position[1],
-    },
-    slideInBottom: { // 下侧滑入
-      translateX: position[0],
-      translateY: pageSize.height + height,
-    },
-    slideInLeftTop: { // 左上侧滑入
-      translateX: -width,
-      translateY: -height,
-    },
-    slideInRightTop: { // 右上侧滑入
-      translateX: pageSize.width + width,
-      translateY: -height,
-    },
-    slideInLeftBottom: { // 左下侧滑入
-      translateX: -width,
-      translateY: pageSize.height + height,
-    },
-    slideInRightBottom: { // 右下侧滑入
-      translateX: pageSize.width + width,
-      translateY: pageSize.height + height,
-    }
-  }
-
-  let keyframes = [];
-  if (dMap[animation.type]) {
-    // 根据type生成的第一帧
-    keyframes.push({
-      ...dMap[animation.type],
-      width: size[0],
-      height: size[1],
-    });
-  } else if (animation.keyframes) {
-    // 配置的关键帧
-    keyframes.push(...animation.keyframes);
-  }
-
-  // 补充最后一帧
-  keyframes.push({
-    translateX: position[0],
-    translateY: position[1],
-    rotate: rotation,
-    width: size[0],
-    height: size[1],
-  })
-
-  return keyframes;
-}
-
-export const prepareInitState = (attrs) => {
-  if (!attrs) {
-    return;
-  }
-  const { translateX = 0, translateY = 0, rotate = 0, ...others } = attrs;
-  return {
-    ...others,
-    transform: `translateX(${translateX}px) translateY(${translateY}px) rotate(${rotate}deg)`,
-  };
 }

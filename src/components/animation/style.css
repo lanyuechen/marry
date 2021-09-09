@@ -1,4 +1,5 @@
 .container {
   position: absolute;
   overflow: hidden;
+  opacity: 0;
 }

@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import style from './style.css';
 
 export default (props) => {
-  const { src, size, crop } = props;
+  const { src, size, crop, ...otherProps } = props;
 
   const cropedStyle = useMemo(() => {
     if (crop) {
@@ -30,6 +30,7 @@ export default (props) => {
       style={cropedStyle}
       src={src}
       alt="img"
+      {...otherProps}
     />
   );
 }

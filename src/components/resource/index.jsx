@@ -1,5 +1,4 @@
 import React, { useMemo, useEffect, useRef } from 'react';
-import { Image } from 'antd';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import style from './style.less';
@@ -12,12 +11,11 @@ export default (props) => {
     const res = [];
     for (let i = 0; i < pages.length; i++) {
       for (let element of (pages[i].elements || [])) {
-        if (element.type === 'image') {
-          res.push({
-            src: element.props.src,
-            pageIdx: i,
-          });
-        }
+        res.push({
+          type: element.type,
+          src: element.props.src,
+          pageIdx: i,
+        });
       }
     }
     return res;
@@ -45,9 +43,10 @@ export default (props) => {
           clickable: true
         }}
       >
-        {data.map((image, idx) => (
+        {data.map((element, idx) => (
           <SwiperSlide key={idx}>
-            <Image className={style.image} src={image.src} width="100%" height="100%" />
+            {element.type === 'image' && <img className={style.image} src={element.src} />}
+            {element.type !== 'image' && element.type}
           </SwiperSlide>
         ))}
       </Swiper>

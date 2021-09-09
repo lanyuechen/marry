@@ -2,7 +2,8 @@ import React, { useState, useMemo } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import PageContainer from '@/components/page-container';
-import ElementContainer from '@/components/element-container';
+import Animation from '@/components/animation';
+import ClipPath from '@/components/clip-path';
 import Audio from '@/components/audio';
 import Icon from '@/components/icon';
 import ELEMENTS from '@/components/elements';
@@ -34,17 +35,32 @@ export default (props) => {
               {page.elements && page.elements.map((element, elementIdx) => {
                 const C = ELEMENTS[element.type];
                 return (
-                  <ElementContainer
+                  <Animation
                     key={elementIdx}
                     entrance={currentIdx === pageIdx}
-                    position={element.position}
-                    pageSize={{width: window.innerWidth, height: window.innerHeight}}
-                    size={element.size}
-                    rotation={element.rotation}
-                    clip={element.clip}
-                    animation={!editable && element.animation}
+                    {...element.animation}
+                    keyframes={[
+                      {
+                        width: element.size[0],
+                        height: element.size[1],
+                        translateX: -element.size[0],
+                        translateY: element.position[1],
+                        duration: 0,
+                        opacity: 1
+                      },
+                      {
+                        translateX: element.position[0],
+                      },
+                    ]}
                   >
-                    <C {...element.props} size={element.size} />
+                    {element.clip && (
+                      <ClipPath {...element.clip} size={element.size}>
+                        <C {...element.props} size={element.size} />
+                      </ClipPath>
+                    )}
+                    {!element.clip && (
+                      <C {...element.props} size={element.size} />
+                    )}
                     {editable && onEdit && (
                       <button
                         className={style.btn}
@@ -53,7 +69,7 @@ export default (props) => {
                         <Icon type="icon-edit" />
                       </button>
                     )}
-                  </ElementContainer>
+                  </Animation>
                 );
               })}
             </PageContainer>

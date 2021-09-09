@@ -1,7 +1,7 @@
 import React, { useMemo, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import PageContainer from '@/components/page-container';
-import ElementContainer from '@/components/element-container';
+import Animation from '@/components/animation';
 import ELEMENTS from '@/components/elements';
 import { preparePages } from '@/utils/prepare';
 
@@ -11,23 +11,20 @@ export default (props) => {
   const { pages, activeIndex, onSlideChange } = props;
   const ref = useRef();
   const spaceBetween = 16;
-  const [data, pageSize] = useMemo(() => {
+  const data = useMemo(() => {
     const pageSize = { width: (window.innerWidth - spaceBetween) / 3, height: 200 }
     let lastPage;
-    return [
-      preparePages(pages, pageSize).map((page, i) => {
-        let elementIdx = 0;
-        if (lastPage) {
-          elementIdx = lastPage.elementIdx + lastPage.elements.filter(element => element.type === 'image').length;
-        }
-        lastPage = {
-          ...page,
-          elementIdx,
-        };
-        return lastPage;
-      }),
-      pageSize,
-    ];
+    return preparePages(pages, pageSize).map((page, i) => {
+      let elementIdx = 0;
+      if (lastPage) {
+        elementIdx = lastPage.elementIdx + lastPage.elements.filter(element => element.type === 'image').length;
+      }
+      lastPage = {
+        ...page,
+        elementIdx,
+      };
+      return lastPage;
+    });
   }, [pages]);
 
   useEffect(() => {
@@ -61,17 +58,26 @@ export default (props) => {
               {page.elements && page.elements.map((element, elementIdx) => {
                 const C = ELEMENTS[element.type];
                 return (
-                  <ElementContainer
+                  <Animation
                     key={elementIdx}
-                    position={element.position}
-                    pageSize={pageSize}
-                    size={element.size}
-                    rotation={element.rotation}
-                    clip={element.clip}
-                    animation={false}
+                    entrance={true}
+                    {...element.animation}
+                    keyframes={[
+                      {
+                        width: element.size[0],
+                        height: element.size[1],
+                        translateX: -element.size[0],
+                        translateY: element.position[1],
+                        duration: 0,
+                        opacity: 1
+                      },
+                      {
+                        translateX: element.position[0],
+                      },
+                    ]}
                   >
                     <C {...element.props} size={element.size} />
-                  </ElementContainer>
+                  </Animation>
                 );
               })}
             </PageContainer>
