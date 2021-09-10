@@ -21,6 +21,6 @@ export function debounce(func, idle) {
 }
 
 export async function fetchData(id) {
-  const res = await fetch(`https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/templates/${id}.json`);
+  const res = await fetch(`${PUBLIC_PATH}templates/${id}.json`);
   return res.json();
 }

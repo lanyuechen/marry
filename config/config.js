@@ -14,6 +14,9 @@ export default {
   publicPath,  // jsdelivr cdn 加速
   routes,
   antd: {},
+  define: {
+    PUBLIC_PATH: publicPath,
+  },
   // dynamicImport: {
   //   loading: '@/components/loading',
   // },

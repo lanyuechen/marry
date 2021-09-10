@@ -22,7 +22,7 @@
             "src": "https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/images/animals/1.jpg"
           },
           "position": [0, 0],
-          "size": ["100%", 300],
+          "size": ["100%", "30%"],
           "animation": {
             "duration": 1000
           }
@@ -32,8 +32,8 @@
           "props": {
             "src": "https://cdn.jsdelivr.net/gh/lanyuechen/marry@gh-pages/images/animals/2.jpg"
           },
-          "position": ["5%", 320],
-          "size": ["90%", 200],
+          "position": ["5%", "35%"],
+          "size": ["90%", "30%"],
           "rotation": 30,
           "clip": {
             "scale": 1.1,
