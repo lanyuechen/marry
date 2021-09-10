@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import Animation from '@/components/animation';
+import Frame from '@/components/frame';
 
 export default function() {
   const position = [200, 100];
@@ -14,6 +15,11 @@ export default function() {
   return (
     <div>
       <button onClick={play}>play</button>
+      <div style={{width: 200, height: 300, position: 'absolute', left: 100, top: 100}}>
+        <Frame>
+          xxx
+        </Frame>
+      </div>
       <Animation
         ref={ref}
         easing={'easeInOutSine'}

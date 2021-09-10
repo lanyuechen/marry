@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import PageContainer from '@/components/page-container';
 import Animation from '@/components/animation';
 import ClipPath from '@/components/clip-path';
+import Frame from '@/components/frame';
 import Audio from '@/components/audio';
 import Icon from '@/components/icon';
 import ELEMENTS from '@/components/elements';
@@ -34,6 +35,13 @@ export default (props) => {
             <PageContainer background={page.background}>
               {page.elements && page.elements.map((element, elementIdx) => {
                 const C = ELEMENTS[element.type];
+                let elementJsx = <C {...element.props} size={element.size} />;
+                if (element.frame) {
+                  elementJsx = <Frame>{elementJsx}</Frame>;
+                }
+                if (element.clip) {
+                  elementJsx = <ClipPath {...element.clip} size={element.size}>{elementJsx}</ClipPath>;
+                }
                 return (
                   <Animation
                     key={elementIdx}
@@ -53,14 +61,7 @@ export default (props) => {
                       },
                     ]}
                   >
-                    {element.clip && (
-                      <ClipPath {...element.clip} size={element.size}>
-                        <C {...element.props} size={element.size} />
-                      </ClipPath>
-                    )}
-                    {!element.clip && (
-                      <C {...element.props} size={element.size} />
-                    )}
+                    {elementJsx}
                     {editable && onEdit && (
                       <button
                         className={style.btn}
