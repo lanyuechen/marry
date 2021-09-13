@@ -2,8 +2,11 @@ import React, { useMemo, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import PageContainer from '@/components/page-container';
 import Animation from '@/components/animation';
+import Frame from '@/components/frame';
+import ClipPath from '@/components/clip-path';
 import ELEMENTS from '@/components/elements';
 import { preparePages } from '@/utils/prepare';
+import * as animation from '@/utils/animation';
 
 import style from './style.less';
 
@@ -11,8 +14,9 @@ export default (props) => {
   const { pages, activeIndex, onSlideChange } = props;
   const ref = useRef();
   const spaceBetween = 16;
+  const pageSize = { width: (window.innerWidth - spaceBetween) / 3, height: 200 }
+
   const data = useMemo(() => {
-    const pageSize = { width: (window.innerWidth - spaceBetween) / 3, height: 200 }
     let lastPage;
     return preparePages(pages, pageSize).map((page, i) => {
       let elementIdx = 0;
@@ -57,26 +61,26 @@ export default (props) => {
             <PageContainer background={page.background}>
               {page.elements && page.elements.map((element, elementIdx) => {
                 const C = ELEMENTS[element.type];
+                let elementJsx = <C {...element.props} size={element.size} />;
+                if (element.frame) {
+                  elementJsx = <Frame>{elementJsx}</Frame>;
+                }
+                if (element.clip) {
+                  elementJsx = <ClipPath {...element.clip} size={element.size}>{elementJsx}</ClipPath>;
+                }
                 return (
                   <Animation
                     key={elementIdx}
                     entrance={true}
                     {...element.animation}
-                    keyframes={[
-                      {
-                        width: element.size[0],
-                        height: element.size[1],
-                        translateX: -element.size[0],
-                        translateY: element.position[1],
-                        duration: 0,
-                        opacity: 1
-                      },
-                      {
-                        translateX: element.position[0],
-                      },
-                    ]}
+                    keyframes={animation.keyframes('slide-in-left', {
+                      x: element.position[0],
+                      y: element.position[1],
+                      width: element.size[0],
+                      height: element.size[1],
+                    }, pageSize)}
                   >
-                    <C {...element.props} size={element.size} />
+                    {elementJsx}
                   </Animation>
                 );
               })}

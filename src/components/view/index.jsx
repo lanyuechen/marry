@@ -9,6 +9,7 @@ import Audio from '@/components/audio';
 import Icon from '@/components/icon';
 import ELEMENTS from '@/components/elements';
 import prepare from '@/utils/prepare';
+import * as animation from '@/utils/animation';
 
 import style from './style.less';
 
@@ -16,7 +17,9 @@ export default (props) => {
   const { data: _data, editable, onEdit } = props;
   const [ currentIdx, setCurrentIdx ] = useState(0);
 
-  const data = useMemo(() => prepare(_data), [_data]);
+  const pageSize = { width: window.innerWidth, height: window.innerHeight };
+  
+  const data = useMemo(() => prepare(_data, pageSize), [_data]);
 
   return (
     <>
@@ -47,19 +50,12 @@ export default (props) => {
                     key={elementIdx}
                     entrance={currentIdx === pageIdx}
                     {...element.animation}
-                    keyframes={[
-                      {
-                        width: element.size[0],
-                        height: element.size[1],
-                        translateX: -element.size[0],
-                        translateY: element.position[1],
-                        duration: 0,
-                        opacity: 1
-                      },
-                      {
-                        translateX: element.position[0],
-                      },
-                    ]}
+                    keyframes={animation.keyframes('slide-in-left', {
+                      x: element.position[0],
+                      y: element.position[1],
+                      width: element.size[0],
+                      height: element.size[1],
+                    }, pageSize)}
                   >
                     {elementJsx}
                     {editable && onEdit && (

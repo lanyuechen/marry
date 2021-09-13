@@ -71,7 +71,7 @@
 | 属性 | 类型 | 描述 | 默认值 |
 | ---- | ---- | ---- | ---- |
 | type | enum | 组件类型，包括(image, text) | - |
-| position | array[x, y] | 组件大小 | [0, 0] |
+| position | array[x, y] | 组件位置 | [0, 0] |
 | size | array[width, height] | 组件大小 | [100, 100] |
 | rotation | number | 组件旋转角度 | 0 |
 | clip | [Clip](#元素裁剪配置-Clip) | 元素裁剪 | - |
