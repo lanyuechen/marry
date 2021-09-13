@@ -6,14 +6,16 @@ import Cover from '@/components/cover';
 import PageHeader from '@/components/page-header';
 import { fetchData } from '@/utils/utils';
 
-export default () => {
-  const [data, setData] = useState([]);
+import data from '@/../public/templates/index.json';
 
-  useEffect(() => {
-    fetchData('index').then(res => {
-      setData(res);
-    });
-  }, []);
+export default () => {
+  // const [data, setData] = useState([]);
+
+  // useEffect(() => {
+  //   fetchData('index').then(res => {
+  //     setData(res);
+  //   });
+  // }, []);
 
   const handleLink = async (item) => {
     history.push({
