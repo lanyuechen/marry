@@ -41,7 +41,7 @@ export default (props) => {
       <svg width="0" height="0" viewBox={viewBox} xmlns="http://www.w3.org/2000/svg" version="1.1">
         <defs>
           <clipPath id={id} transform={transform}>
-            <path d={path} p-id="2011"></path>
+            <path d={path}></path>
           </clipPath>
         </defs>
       </svg>

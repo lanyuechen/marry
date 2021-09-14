@@ -40,7 +40,7 @@ export default (props) => {
                 const C = ELEMENTS[element.type];
                 let elementJsx = <C {...element.props} size={element.size} />;
                 if (element.frame) {
-                  elementJsx = <Frame>{elementJsx}</Frame>;
+                  elementJsx = <Frame {...element.frame}>{elementJsx}</Frame>;
                 }
                 if (element.clip) {
                   elementJsx = <ClipPath {...element.clip} size={element.size}>{elementJsx}</ClipPath>;

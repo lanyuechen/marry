@@ -51,7 +51,9 @@
           },
           "position": ["10%", "60%"],
           "size": ["80%", "30%"],
-          "frame": {},
+          "frame": {
+            "type": "burrs"
+          },
           "animation": {
             "duration": 1000,
             "delay": 600
