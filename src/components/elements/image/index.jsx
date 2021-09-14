@@ -25,12 +25,14 @@ export default (props) => {
   }, [crop]);
 
   return (
-    <img
-      className={style.image}
-      style={cropedStyle}
-      src={src}
-      alt="img"
-      {...otherProps}
-    />
+    <div className={style.container}>
+      <img
+        className={style.image}
+        style={cropedStyle}
+        src={src}
+        alt="img"
+        {...otherProps}
+      />
+    </div>
   );
 }
