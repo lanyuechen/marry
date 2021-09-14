@@ -1,42 +1,35 @@
-import React, { useRef } from 'react';
-import Animation from '@/components/animation';
-import Frame from '@/components/frame';
+import React, { useRef, useState } from 'react';
 
-export default function() {
-  const position = [200, 100];
-  const size = [100, 100];
+function C(props) {
+  const { idx } = props;
+  console.log('C', idx);
 
-  const ref = useRef();
-  
-  const play = () => {
-    ref.current.play();
+  const show = () => {
+    console.log('===', idx);
   }
 
   return (
     <div>
+      {/* {idx} */}
+      <button onClick={show}>show</button>
+    </div>
+  )
+}
+
+export default function() {
+  const [idx, setIdx] = useState(0);
+
+  const play = () => {
+    console.log('+++', idx);
+    setIdx(i => i + 1);
+  }
+
+  let X = C;
+
+  return (
+    <div>
       <button onClick={play}>play</button>
-      <div style={{width: 200, height: 300, position: 'absolute', left: 100, top: 100}}>
-        <Frame>
-          xxx
-        </Frame>
-      </div>
-      <Animation
-        ref={ref}
-        easing={'easeInOutSine'}
-        keyframes={[
-          { translateX: -size[0], translateY: position[1], duration: 0, opacity: 1 },
-          { translateX: position[0], translateY: position[1] },
-        ]}
-      >
-        <div
-          style={{
-            width: size[0],
-            height: size[1],
-            background: '#eee'
-          }}>
-          box
-        </div>
-      </Animation>
+      <X idx={idx} />
     </div>
   );
 }

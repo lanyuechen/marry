@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { history } from 'umi';
-import { Button, Popconfirm } from 'antd';
+import { Button, Popconfirm, Affix } from 'antd';
+import update from 'immutability-helper';
 import PageHeader from '@/components/page-header';
 import Banner from '@/components/banner';
 import Gallery from '@/components/gallery';
 import Resource from '@/components/resource';
+import ResourceConfig from '@/components/resource-config';
 import * as storyService from '@/services/story';
 
 export default (props) => {
@@ -46,8 +48,19 @@ export default (props) => {
     setElementIdx(elementIdx);
   }
 
+  const handleChange = (key, spec) => {
+    key = typeof key === 'string' ? key.split('.') : [...key];
+    spec = key.reverse().reduce((p, n) => ({[n]: p}), spec);
+    const newData = update(data, spec);
+    storyService.update(id, newData).then(res => {
+      if (res.success) {
+        setData(newData);
+      }
+    });
+  }
+
   return (
-    <div>
+    <div style={{height: '100%', overflow: 'auto'}}>
       <PageHeader title={data.name} />
       <Banner
         title={data.name}
@@ -67,8 +80,24 @@ export default (props) => {
           <Button key="deit" type="primary" size="small" ghost onClick={handleEdit}>编辑</Button>,
         ]}
       />
-      <Gallery pages={data.pages} activeIndex={pageIdx} onSlideChange={handleSlideChange} />
-      <Resource pages={data.pages} activeIndex={elementIdx} onSlideChange={handleSlideChange} />
+      <Gallery
+        pages={data.pages}
+        activeIndex={pageIdx}
+        onSlideChange={handleSlideChange}
+      />
+      <Affix offsetTop={0}>
+        <Resource
+          pages={data.pages}
+          activeIndex={elementIdx}
+          onSlideChange={handleSlideChange}
+        />
+      </Affix>
+      <ResourceConfig
+        data={data}
+        pageIdx={pageIdx}
+        elementIdx={elementIdx}
+        onChange={handleChange}
+      />
     </div>
   );
 }

@@ -56,8 +56,8 @@ export default (props) => {
           clickable: true
         }}
       >
-        {data.map((page) => (
-          <SwiperSlide key={page.id}>
+        {data.map((page, pageIdx) => (
+          <SwiperSlide key={pageIdx}>
             <PageContainer background={page.background}>
               {page.elements && page.elements.map((element, elementIdx) => {
                 const C = ELEMENTS[element.type];

@@ -27,7 +27,7 @@ export default (props) => {
         rotation,
       });
     }, 200);
-  }, []);
+  }, [onChange]);
 
   return (
     <div className={style.container}>
