@@ -12,8 +12,8 @@ export default (props) => {
       const s = Math.max(size[0] / crop.areaPixel.width, size[1] / crop.areaPixel.height);
 
       return {
-        width: w * s / crop.zoom,
-        height: h * s / crop.zoom,
+        width: w * s / crop.zoom || 0,
+        height: h * s / crop.zoom || 0,
         transform: `
           translate(-50%, -50%)
           scale(${crop.zoom})

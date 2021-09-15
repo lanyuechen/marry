@@ -1,24 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Link, history, useLocation } from 'umi';
+import React from 'react';
+import { Link, useLocation } from 'umi';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Icon from '@/components/icon';
 
 import style from './style.less';
 
 export default function(props) {
-  const [pathname, setPathname] = useState('/');
-  const location = useLocation();
-
-  useEffect(() => {
-    return history.listen((location) => {
-      setPathname(location.pathname);
-    });
-  }, []);
+  const { pathname } = useLocation();
 
   return (
     <div className={style.layout}>
       <TransitionGroup style={{height: '100%'}}>
-        <CSSTransition key={location.pathname} classNames="fade" timeout={300}>
+        <CSSTransition key={pathname} classNames="fade" timeout={300}>
           {props.children}
         </CSSTransition>
       </TransitionGroup>

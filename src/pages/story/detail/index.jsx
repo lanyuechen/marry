@@ -2,11 +2,14 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { history } from 'umi';
 import { Button, Popconfirm, Affix } from 'antd';
 import update from 'immutability-helper';
+import { MenuOutlined } from '@ant-design/icons';
+import Container from '@/components/container';
 import PageHeader from '@/components/page-header';
 import Banner from '@/components/banner';
 import Gallery from '@/components/gallery';
 import Resource from '@/components/resource';
-import ResourceConfig from '@/components/resource-config';
+import ElementConfig from '@/components/element-config';
+import StoryConfig from '@/components/story-config';
 import * as storyService from '@/services/story';
 
 export default (props) => {
@@ -14,6 +17,7 @@ export default (props) => {
   const [data, setData] = useState(history.location.state);
   const [pageIdx, setPageIdx] = useState(0);
   const [elementIdx, setElementIdx] = useState(0);
+  const [storyConfigVisible, setStoryConfigVisible] = useState(false);
 
   useEffect(() => {
     storyService.detail(id).then(res => {
@@ -44,10 +48,6 @@ export default (props) => {
     history.push(`/story/${id}/view`);
   }
 
-  const handleEdit = async () => {
-    history.push(`/story/${id}/editor`);
-  }
-
   const handleRemove = () => {
     storyService.remove(id).then(res => {
       if (res.success) {
@@ -73,8 +73,18 @@ export default (props) => {
   }
 
   return (
-    <div style={{height: '100%', overflow: 'auto'}}>
-      <PageHeader title={data.name} />
+    <div style={{height: '100%', overflowY: 'auto'}}>
+      <PageHeader
+        title={data.name}
+        extra={[
+          <Button
+            key="config"
+            type="link"
+            icon={<MenuOutlined />}
+            onClick={() => setStoryConfigVisible(true)}
+          />,
+        ]}
+      />
       <Banner
         title={data.name}
         description={data.description}
@@ -90,7 +100,6 @@ export default (props) => {
             <Button danger size="small" ghost>删除</Button>
           </Popconfirm>,
           <Button key="view" type="primary" size="small" ghost onClick={handleView}>预览</Button>,
-          <Button key="deit" type="primary" size="small" ghost onClick={handleEdit}>编辑</Button>,
         ]}
       />
       <Gallery
@@ -105,11 +114,17 @@ export default (props) => {
           onSlideChange={handleSlideChange}
         />
       </Affix>
-      <ResourceConfig
+      <ElementConfig
         data={data}
         pageIdx={pageIdx}
         elementIdx={elementIdx}
         onChange={handleChange}
+      />
+      <StoryConfig
+        data={data}
+        visible={storyConfigVisible}
+        onChange={handleChange}
+        onClose={() => setStoryConfigVisible(false)}
       />
     </div>
   );

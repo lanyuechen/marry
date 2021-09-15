@@ -33,7 +33,7 @@ export default (props) => {
   }
 
   return (
-    <div>
+    <div style={{height: '100%', overflowY: 'auto'}}>
       <PageHeader title={data.name} />
       <Banner
         title={data.name}
