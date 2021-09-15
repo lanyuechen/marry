@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react';
 
+import Burrs from './burrs';
 const Frames = {
-  burrs: require('./burrs'),
+  burrs: Burrs,
 }
 
 export default (props) => {

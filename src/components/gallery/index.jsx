@@ -19,7 +19,7 @@ export default (props) => {
   const data = useMemo(() => preparePages(pages, pageSize), [pages]);
 
   useEffect(() => {
-    if (ref.current && ref.current.activeIndex !== activeIndex) {
+    if (ref.current && typeof activeIndex === 'number' && ref.current.activeIndex !== activeIndex) {
       ref.current.slideTo(activeIndex, 300, false);
     }
   }, [activeIndex]);

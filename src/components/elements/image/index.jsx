@@ -6,7 +6,7 @@ export default (props) => {
   const { src, size, crop, ...otherProps } = props;
 
   const cropedStyle = useMemo(() => {
-    if (crop) {
+    if (crop && crop.areaPixel && crop.area && crop.zoom) {
       const w = crop.areaPixel.width / crop.area.width * 100;
       const h = crop.areaPixel.height / crop.area.height * 100;
       const s = Math.max(size[0] / crop.areaPixel.width, size[1] / crop.areaPixel.height);
