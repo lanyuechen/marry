@@ -29,8 +29,8 @@ export default (props) => {
     }
     let idx = elementIdx;
     for (let i = 0; i < pageIdx; i++) {
-      if (data.pages[pageIdx].elements) {
-        idx += data.pages[pageIdx].elements.length;
+      if (data.pages[i].elements) {
+        idx += data.pages[i].elements.length;
       }
     }
     return idx;
