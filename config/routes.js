@@ -49,11 +49,6 @@ export default [
         path: '/story/:id/view',
         component: '@/pages/story/view',
       },
-      // 请柬编辑
-      {
-        path: '/story/:id/editor',
-        component: '@/pages/story/editor',
-      },
     ]
   },
 ]

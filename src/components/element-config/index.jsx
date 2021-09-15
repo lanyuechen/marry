@@ -14,7 +14,7 @@ const PROP_FORMS = {
 export default (props) => {
   const { data, pageIdx, elementIdx, onChange } = props;
 
-  const handleElementChange = (key, value) => {
+  const handleChange = (key, value) => {
     key = typeof key === 'string' ? key.split('.') : key;
     onChange(['pages', pageIdx, 'elements', elementIdx, ...key], {$set: value});
   }
@@ -29,7 +29,7 @@ export default (props) => {
   return (
     <PropForm
       element={element}
-      onChange={handleElementChange}
+      onChange={handleChange}
     />
   )
 }
