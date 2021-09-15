@@ -15,7 +15,7 @@ export default (props) => {
       setZoom(cropDefault.zoom);
       setRotation(cropDefault.rotation);
     }
-  }, []);
+  }, [cropDefault]);
 
   const onCropComplete = useMemo(() => {
     // croppedArea, croppedAreaPixels

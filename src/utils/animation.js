@@ -21,6 +21,7 @@ export function slideIn(type, rect, parent) {
     height: rect.height,
     translateX: rect.x,
     translateY: rect.y,
+    rotate: rect.rotation,
     duration: 0,
     opacity: 1
   };

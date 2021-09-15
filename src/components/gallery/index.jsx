@@ -65,9 +65,9 @@ export default (props) => {
                 if (element.frame) {
                   elementJsx = <Frame {...element.frame}>{elementJsx}</Frame>;
                 }
-                if (element.clip) {
-                  elementJsx = <ClipPath {...element.clip} size={element.size}>{elementJsx}</ClipPath>;
-                }
+                // if (element.clip) {
+                //   elementJsx = <ClipPath {...element.clip} size={element.size}>{elementJsx}</ClipPath>;
+                // }
                 return (
                   <Animation
                     key={elementIdx}
@@ -78,6 +78,7 @@ export default (props) => {
                       y: element.position[1],
                       width: element.size[0],
                       height: element.size[1],
+                      rotation: element.rotation,
                     }, pageSize)}
                   >
                     {elementJsx}
