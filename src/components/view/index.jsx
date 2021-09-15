@@ -41,10 +41,9 @@ export default (props) => {
                 let elementJsx = <C {...element.props} size={element.size} />;
                 if (element.frame) {
                   elementJsx = <Frame {...element.frame}>{elementJsx}</Frame>;
+                } else if (element.clip) {
+                  elementJsx = <ClipPath {...element.clip} size={element.size}>{elementJsx}</ClipPath>;
                 }
-                // if (element.clip) {
-                //   elementJsx = <ClipPath {...element.clip} size={element.size}>{elementJsx}</ClipPath>;
-                // }
                 return (
                   <Animation
                     key={elementIdx}

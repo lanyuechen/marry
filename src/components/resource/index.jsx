@@ -9,12 +9,15 @@ export default (props) => {
 
   const data = useMemo(() => {
     const res = [];
-    for (let i = 0; i < pages.length; i++) {
-      for (let element of (pages[i].elements || [])) {
+    for (let pageIdx = 0; pageIdx < pages.length; pageIdx++) {
+      const elements = pages[pageIdx].elements || [];
+      for (let elementIdx = 0; elementIdx < elements.length; elementIdx++) {
+        const element = elements[elementIdx];
         res.push({
           type: element.type,
           src: element.props.src,
-          pageIdx: i,
+          pageIdx,
+          elementIdx,
         });
       }
     }
@@ -29,7 +32,7 @@ export default (props) => {
 
   const handleSlideChange = (idx) => {
     const current = data[idx];
-    onSlideChange && onSlideChange(current.pageIdx, idx);
+    onSlideChange && onSlideChange(current.pageIdx, current.elementIdx);
   }
 
   return (

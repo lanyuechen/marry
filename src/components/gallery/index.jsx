@@ -16,20 +16,7 @@ export default (props) => {
   const spaceBetween = 16;
   const pageSize = { width: (window.innerWidth - spaceBetween) / 3, height: 200 }
 
-  const data = useMemo(() => {
-    let lastPage;
-    return preparePages(pages, pageSize).map((page, i) => {
-      let elementIdx = 0;
-      if (lastPage) {
-        elementIdx = lastPage.elementIdx + lastPage.elements.filter(element => element.type === 'image').length;
-      }
-      lastPage = {
-        ...page,
-        elementIdx,
-      };
-      return lastPage;
-    });
-  }, [pages]);
+  const data = useMemo(() => preparePages(pages, pageSize), [pages]);
 
   useEffect(() => {
     if (ref.current && ref.current.activeIndex !== activeIndex) {
@@ -38,8 +25,7 @@ export default (props) => {
   }, [activeIndex]);
 
   const handleSlideChange = (idx) => {
-    const current = data[idx];
-    onSlideChange && onSlideChange(idx, current.elementIdx);
+    onSlideChange && onSlideChange(idx, 0);
   }
 
   return (
@@ -64,10 +50,9 @@ export default (props) => {
                 let elementJsx = <C {...element.props} size={element.size} />;
                 if (element.frame) {
                   elementJsx = <Frame {...element.frame}>{elementJsx}</Frame>;
+                } else if (element.clip) {
+                  elementJsx = <ClipPath {...element.clip} size={element.size}>{elementJsx}</ClipPath>;
                 }
-                // if (element.clip) {
-                //   elementJsx = <ClipPath {...element.clip} size={element.size}>{elementJsx}</ClipPath>;
-                // }
                 return (
                   <Animation
                     key={elementIdx}

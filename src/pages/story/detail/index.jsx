@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { history } from 'umi';
 import { Button, Popconfirm, Affix } from 'antd';
 import update from 'immutability-helper';
@@ -22,6 +22,19 @@ export default (props) => {
       }
     });
   }, [id]);
+
+  const elementGlobalIdx = useMemo(() => {
+    if (!data || !data.pages) {
+      return 0;
+    }
+    let idx = elementIdx;
+    for (let i = 0; i < pageIdx; i++) {
+      if (data.pages[pageIdx].elements) {
+        idx += data.pages[pageIdx].elements.length;
+      }
+    }
+    return idx;
+  }, [data?.pages, pageIdx, elementIdx]);
 
   if (!data) {
     return null;
@@ -88,7 +101,7 @@ export default (props) => {
       <Affix offsetTop={0}>
         <Resource
           pages={data.pages}
-          activeIndex={elementIdx}
+          activeIndex={elementGlobalIdx}
           onSlideChange={handleSlideChange}
         />
       </Affix>
