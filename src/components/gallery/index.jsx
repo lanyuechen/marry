@@ -14,7 +14,8 @@ export default (props) => {
   const { pages, activeIndex, onSlideChange } = props;
   const ref = useRef();
   const spaceBetween = 16;
-  const pageSize = { width: (window.innerWidth - spaceBetween * 2) / 3, height: 200 }
+  const pageSize = { width: window.innerWidth, height: window.innerHeight };
+  const scale = (window.innerWidth - spaceBetween * 2) / 3 / window.innerWidth;
 
   const data = useMemo(() => preparePages(pages, pageSize), [pages]);
 
@@ -31,7 +32,7 @@ export default (props) => {
   return (
     <div className={style.gallery}>
       <Swiper
-        style={{height: 200}}
+        style={{ height: pageSize.height * scale }}
         slidesPerView={3}
         spaceBetween={spaceBetween}
         // effect="coverflow"
@@ -44,7 +45,15 @@ export default (props) => {
       >
         {data.map((page, pageIdx) => (
           <SwiperSlide key={pageIdx}>
-            <PageContainer background={page.background}>
+            <PageContainer
+              background={page.background}
+              style={{
+                width: window.innerWidth,
+                height: window.innerHeight,
+                transformOrigin: '0 0',
+                transform: `scale(${scale})`,
+              }}
+            >
               {page.elements && page.elements.map((element, elementIdx) => {
                 const C = ELEMENTS[element.type];
                 let elementJsx = <C {...element.props} size={element.size} />;

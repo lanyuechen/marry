@@ -55,7 +55,6 @@ export default (props) => {
   }
 
   const handleSlideChange = (pageIdx, elementIdx) => {
-    console.log('-------', pageIdx, elementIdx);
     setIdx({ pageIdx, elementIdx });
   }
 
