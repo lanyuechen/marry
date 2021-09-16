@@ -1,4 +1,6 @@
-import React, { Children, isValidElement, cloneElement, useMemo } from 'react';
+import React, { useMemo } from 'react';
+
+import style from './style.less';
 
 export default (props) => {
   const { children, id, path, scale, size, viewBox = "0 0 1024 1024" } = props;
@@ -26,18 +28,9 @@ export default (props) => {
 
   return (
     <>
-      {Children.map(children, (child) => {
-        if (!isValidElement(child)) {
-          return null
-        }
-        return cloneElement(child, {
-          ...child.props,
-          style: {
-            ...(child.props.style || {}),
-            clipPath: `url(#${id})`,
-          }
-        });
-      })}
+      <div className={style.clipContainer} style={{ clipPath: `url(#${id})`}}>
+        {children}
+      </div>
       <svg width="0" height="0" viewBox={viewBox} xmlns="http://www.w3.org/2000/svg" version="1.1">
         <defs>
           <clipPath id={id} transform={transform}>
