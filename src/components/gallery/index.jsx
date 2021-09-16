@@ -14,7 +14,7 @@ export default (props) => {
   const { pages, activeIndex, onSlideChange } = props;
   const ref = useRef();
   const spaceBetween = 16;
-  const pageSize = { width: (window.innerWidth - spaceBetween) / 3, height: 200 }
+  const pageSize = { width: (window.innerWidth - spaceBetween * 2) / 3, height: 200 }
 
   const data = useMemo(() => preparePages(pages, pageSize), [pages]);
 
