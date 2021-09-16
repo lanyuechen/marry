@@ -3,7 +3,6 @@ import { history } from 'umi';
 import { Button, Popconfirm, Affix } from 'antd';
 import update from 'immutability-helper';
 import { MenuOutlined } from '@ant-design/icons';
-import Container from '@/components/container';
 import PageHeader from '@/components/page-header';
 import Banner from '@/components/banner';
 import Gallery from '@/components/gallery';
@@ -15,8 +14,7 @@ import * as storyService from '@/services/story';
 export default (props) => {
   const { id } = props.match.params;
   const [data, setData] = useState(history.location.state);
-  const [pageIdx, setPageIdx] = useState(0);
-  const [elementIdx, setElementIdx] = useState(0);
+  const [{ pageIdx, elementIdx }, setIdx] = useState({ pageIdx: 0, elementIdx: 0 });
   const [storyConfigVisible, setStoryConfigVisible] = useState(false);
 
   useEffect(() => {
@@ -38,7 +36,7 @@ export default (props) => {
       }
     }
     return idx;
-  }, [data?.pages, pageIdx, elementIdx]);
+  }, [pageIdx, elementIdx]);
 
   if (!data) {
     return null;
@@ -57,8 +55,8 @@ export default (props) => {
   }
 
   const handleSlideChange = (pageIdx, elementIdx) => {
-    setPageIdx(pageIdx);
-    setElementIdx(elementIdx);
+    console.log('-------', pageIdx, elementIdx);
+    setIdx({ pageIdx, elementIdx });
   }
 
   const handleChange = (key, spec) => {
