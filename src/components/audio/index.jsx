@@ -6,6 +6,7 @@ import style from './style.less';
 
 export default (props) => {
   const { src, autoPlay } = props;
+  console.log('todo autoPlay', autoPlay);
   const ref = useRef();
   const [paused, setPaused] = useState(true);
 
@@ -25,7 +26,7 @@ export default (props) => {
       targets: ref.current,
       easing: 'linear',
       duration: 2000,
-      volume: 1
+      volume: 1,
     });
   }
 

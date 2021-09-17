@@ -1,22 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 
-function C(props) {
-  const { idx } = props;
-  console.log('C', idx);
-
-  const show = () => {
-    console.log('===', idx);
-  }
-
-  return (
-    <div>
-      {/* {idx} */}
-      <button onClick={show}>show</button>
-    </div>
-  )
-}
-
-export default function() {
+export default () => {
   const [idx, setIdx] = useState(0);
 
   const play = () => {
@@ -24,12 +8,9 @@ export default function() {
     setIdx(i => i + 1);
   }
 
-  let X = C;
-
   return (
     <div>
       <button onClick={play}>play</button>
-      <X idx={idx} />
     </div>
   );
 }

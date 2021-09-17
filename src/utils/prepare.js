@@ -84,7 +84,7 @@ export const prepareUnit = (value, base) => {
     return parseFloat(value);
   } else if (/%$/.test(value)) {
     return base * parseFloat(value) / 100;
-  } else if (/v[hw]/) {
+  } else if (/v[hw]/.test(value)) {
     return base * parseFloat(value) / 100;
   }
 }

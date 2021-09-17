@@ -4,7 +4,7 @@ import anime from 'animejs/lib/anime.es.js';
 import style from './style.css';
 
 export default forwardRef((props, ref) => {
-  const { children, enable, entrance, ...animeProps } = props;
+  const { children, entrance, ...animeProps } = props;
 
   useImperativeHandle(ref, () => ({
     play: () => {
