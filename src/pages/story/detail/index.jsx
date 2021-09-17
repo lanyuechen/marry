@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { history } from 'umi';
 import { Button, Popconfirm, Affix } from 'antd';
-import update from 'immutability-helper';
+import produce, { setAutoFreeze } from "immer";
+import { set } from 'lodash';
 import { MenuOutlined } from '@ant-design/icons';
 import PageHeader from '@/components/page-header';
 import Banner from '@/components/banner';
@@ -10,6 +11,8 @@ import Resource from '@/components/resource';
 import ElementConfig from '@/components/element-config';
 import StoryConfig from '@/components/story-config';
 import * as storyService from '@/services/story';
+
+setAutoFreeze(false);
 
 export default (props) => {
   const { id } = props.match.params;
@@ -58,10 +61,11 @@ export default (props) => {
     setIdx({ pageIdx, elementIdx });
   }
 
-  const handleChange = (key, spec) => {
+  const handleChange = (key, value) => {
     key = typeof key === 'string' ? key.split('.') : [...key];
-    spec = key.reverse().reduce((p, n) => ({[n]: p}), spec);
-    const newData = update(data, spec);
+    const newData = produce(data, (draft) => {
+      set(draft, key, value);
+    });
     storyService.update(id, newData).then(res => {
       if (res.success) {
         setData(newData);

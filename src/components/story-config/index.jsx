@@ -8,11 +8,6 @@ import style from './style.less';
 export default (props) => {
   const { data, visible, onChange, onClose } = props;
 
-  const handleChange = (key, value) => {
-    key = typeof key === 'string' ? key.split('.') : key;
-    onChange(key, {$set: value});
-  }
-
   return (
     <Drawer
       className={style.drawer}
@@ -23,7 +18,7 @@ export default (props) => {
     >
       <GlobalProp
         data={data}
-        onChange={handleChange}
+        onChange={onChange}
       />
     </Drawer>
   )

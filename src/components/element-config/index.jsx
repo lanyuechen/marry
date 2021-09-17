@@ -16,7 +16,7 @@ export default (props) => {
 
   const handleChange = (key, value) => {
     key = typeof key === 'string' ? key.split('.') : key;
-    onChange(['pages', pageIdx, 'elements', elementIdx, ...key], {$set: value});
+    onChange(['pages', pageIdx, 'elements', elementIdx, ...key], value);
   }
 
   let element = data.pages[pageIdx]?.elements?.[elementIdx];

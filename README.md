@@ -6,7 +6,8 @@
 - swiper 轮播/切换
 - lokijs 前端数据库
 - react-easy-crop 图片裁切
-- immutability-helper 不可变对象
+- immer
+- lodash
 
 - jsdelivr加速（eg: https://cdn.jsdelivr.net/gh/lanyuechen/marry/README.md）
 
