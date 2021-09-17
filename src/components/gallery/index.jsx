@@ -2,9 +2,7 @@ import React, { useMemo, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import PageContainer from '@/components/page-container';
 import Animation from '@/components/animation';
-import Frame from '@/components/frame';
-import ClipPath from '@/components/clip-path';
-import ELEMENTS from '@/components/elements';
+import Element from '@/components/element';
 import { preparePages } from '@/utils/prepare';
 import * as animation from '@/utils/animation';
 
@@ -55,13 +53,6 @@ export default (props) => {
               }}
             >
               {page.elements && page.elements.map((element, elementIdx) => {
-                const C = ELEMENTS[element.type];
-                let elementJsx = <C {...element.props} size={element.size} />;
-                if (element.frame) {
-                  elementJsx = <Frame {...element.frame}>{elementJsx}</Frame>;
-                } else if (element.clip) {
-                  elementJsx = <ClipPath {...element.clip} size={element.size}>{elementJsx}</ClipPath>;
-                }
                 return (
                   <Animation
                     key={elementIdx}
@@ -75,7 +66,13 @@ export default (props) => {
                       rotation: element.rotation,
                     }, pageSize)}
                   >
-                    {elementJsx}
+                    <Element
+                      type={element.type}
+                      size={element.size}
+                      clip={element.clip}
+                      frame={element.frame}
+                      elementProps={element.props}
+                    />
                   </Animation>
                 );
               })}

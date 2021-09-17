@@ -1,0 +1,21 @@
+env:
+  browser: true
+  commonjs: true
+  es6: true
+extends: 
+  - eslint:recommended
+  - plugin:react/recommended
+globals:
+  PUBLIC_PATH: readonly
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 2018
+  sourceType: module
+plugins:
+  - react
+rules:
+  no-console: 1
+  no-unused-vars: 1
+  react/display-name: 0
+  react/prop-types: 0
