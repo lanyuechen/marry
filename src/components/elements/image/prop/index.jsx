@@ -1,10 +1,11 @@
 import React from 'react';
-import { Card, Form, Upload, Button } from 'antd';
+import { Card, Form, Tabs } from 'antd';
 import ImageCrop from './image-crop';
+import CLIPS from '@/constants/clip';
 
 import style from './style.less';
 
-const FRAMES = ['burrs'];
+const FRAMES = ['null', 'burrs'];
 
 export default (props) => {
   const { element, onChange } = props;
@@ -29,6 +30,13 @@ export default (props) => {
           {FRAMES.map(frame => (
             <Card.Grid key={frame} className={style.grid} onClick={() => onChange('frame.type', frame)}>
               {frame}
+            </Card.Grid>
+          ))}
+        </Form.Item>
+        <Form.Item label="裁剪">
+          {Object.entries(CLIPS).map(([key, path]) => (
+            <Card.Grid key={key} className={style.grid} onClick={() => onChange('clip.type', key)}>
+              {key}
             </Card.Grid>
           ))}
         </Form.Item>

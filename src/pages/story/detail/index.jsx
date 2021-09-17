@@ -66,6 +66,7 @@ export default (props) => {
     const newData = produce(data, (draft) => {
       set(draft, key, value);
     });
+    console.log('----', key, value)
     storyService.update(id, newData).then(res => {
       if (res.success) {
         setData(newData);

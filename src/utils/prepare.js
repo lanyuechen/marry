@@ -59,16 +59,10 @@ export const prepareClip = (clip) => {
   if (!clip) {
     return;
   }
-  if (typeof clip === 'string') {
-    return CLIP[clip] && {
-      id: uuid(),
-      path: CLIP[clip],
-    };
-  }
   return {
     ...clip,
     id: uuid(),
-    path: CLIP[clip.path] || clip.path,
+    path: clip.path || CLIP[clip.type],
   }
 }
 

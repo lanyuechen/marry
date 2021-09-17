@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import style from './style.less';
 
 export default (props) => {
-  const { children, id, path, scale, size, viewBox = "0 0 1024 1024" } = props;
+  const { children, id, path, scale = 1, size, viewBox = "0 0 1024 1024" } = props;
 
   const transform = useMemo(() => {
     const width = size[0];

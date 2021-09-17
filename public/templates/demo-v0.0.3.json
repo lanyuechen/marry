@@ -37,7 +37,7 @@
           "rotation": 30,
           "clip": {
             "scale": 1,
-            "path": "cat"
+            "type": "cat"
           },
           "animation": {
             "duration": 1000,

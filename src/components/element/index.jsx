@@ -12,7 +12,8 @@ export default (props) => {
   let elementJsx = <C {...elementProps} size={size} />;
   if (frame) {
     elementJsx = <Frame {...frame}>{elementJsx}</Frame>;
-  } else if (clip) {
+  }
+  if (clip) {
     elementJsx = <ClipPath {...clip} size={size}>{elementJsx}</ClipPath>;
   }
   return elementJsx;
