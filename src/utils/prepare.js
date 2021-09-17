@@ -1,6 +1,6 @@
 import { uuid } from '@/utils/utils';
 
-import CLIP from '@/constants/clip';
+import CLIP_PATH from '@/assets/clip-path.json';
 
 export default (data, pageSize = { width: window.innerWidth, height: window.innerHeight }) => {
 
@@ -62,7 +62,7 @@ export const prepareClip = (clip) => {
   return {
     ...clip,
     id: uuid(),
-    path: clip.path || CLIP[clip.type],
+    path: clip.path || CLIP_PATH[clip.type],
   }
 }
 

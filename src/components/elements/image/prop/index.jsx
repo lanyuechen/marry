@@ -1,7 +1,8 @@
 import React from 'react';
-import { Card, Form, Tabs } from 'antd';
+import { Card, Form } from 'antd';
 import ImageCrop from './image-crop';
-import CLIPS from '@/constants/clip';
+
+import CLIP_PATH from '@/assets/clip-path.json';
 
 import style from './style.less';
 
@@ -34,9 +35,11 @@ export default (props) => {
           ))}
         </Form.Item>
         <Form.Item label="裁剪">
-          {Object.entries(CLIPS).map(([key, path]) => (
+          {Object.entries(CLIP_PATH).map(([key, path]) => (
             <Card.Grid key={key} className={style.grid} onClick={() => onChange('clip.type', key)}>
-              {key}
+              <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <path d={path} />
+              </svg>
             </Card.Grid>
           ))}
         </Form.Item>
