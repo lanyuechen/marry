@@ -4,7 +4,7 @@ import PropForm from './prop';
 
 import style from './style.less';
 
-const AntIcon = createFromIconfontCN({
+export const AntIcon = createFromIconfontCN({
   scriptUrl: [
     '//at.alicdn.com/t/font_2724754_rcmb540ie.js',
   ]

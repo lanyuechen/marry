@@ -1,0 +1,20 @@
+@border-color: #000;
+
+.gridSelect {
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 1px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1px 0 @border-color, 0 1px @border-color, 1px 1px @border-color, 1px 0 @border-color inset, 0 1px @border-color inset;
+  &.active {
+    background: #f0f0f0;
+  }
+}

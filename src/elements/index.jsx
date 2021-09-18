@@ -19,10 +19,10 @@ export default (props) => {
   const C = useMemo(() => ELEMENTS[type], [type]);
 
   let elementJsx = <C {...elementProps} size={size} />;
-  if (frame) {
+  if (frame && frame.type) {
     elementJsx = <Frame {...frame}>{elementJsx}</Frame>;
   }
-  if (clip) {
+  if (clip && clip.type) {
     elementJsx = <ClipPath {...clip} size={size}>{elementJsx}</ClipPath>;
   }
   return elementJsx;

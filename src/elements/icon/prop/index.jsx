@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from 'antd';
-import { Icon } from '@/elements/icon';
+import { AntIcon } from '@/elements/icon';
 
 import style from './style.less';
 
@@ -12,8 +12,15 @@ export default (props) => {
   return (
     <Card bordered={false}>
       {ICONS.map(icon => (
-        <Card.Grid key={icon} className={style.grid} onClick={() => onChange('props.type', icon)}>
-          <Icon type={`icon-${icon}`} style={{fontSize: 24}} />
+        <Card.Grid
+          key={icon}
+          className={style.grid}
+          style={{
+            background: element.props.type === icon ? '#f0f0f0' : ''
+          }}
+          onClick={() => onChange('props.type', icon)}
+        >
+          <AntIcon type={`icon-${icon}`} style={{fontSize: 24}} />
         </Card.Grid>
       ))}
     </Card>
