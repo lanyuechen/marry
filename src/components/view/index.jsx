@@ -5,7 +5,7 @@ import PageContainer from '@/components/page-container';
 import Animation from '@/components/animation';
 import Audio from '@/components/audio';
 import Icon from '@/components/icon';
-import Element from '@/components/element';
+import Element from '@/elements';
 import prepare from '@/utils/prepare';
 import * as animation from '@/utils/animation';
 

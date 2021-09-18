@@ -1,6 +1,6 @@
 import React, { useMemo, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Element from '@/components/element';
+import Element from '@/elements';
 import { prepareElements } from '@/utils/prepare';
 
 import style from './style.less';

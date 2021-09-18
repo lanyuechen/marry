@@ -1,20 +1,9 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Drawer } from 'antd';
-import { prepareElement } from '@/utils/prepare';
-
-import ImageProp from '@/components/elements/image/prop';
-import TextProp from '@/components/elements/text/prop';
-import IconProp from '@/components/elements/icon/prop';
 
 import PageProp from './page-prop';
 
 import style from './style.less';
-
-const PROP_FORMS = {
-  image: ImageProp,
-  text: TextProp,
-  icon: IconProp,
-};
 
 export default (props) => {
   const { data, visible, pageIdx, onChange, onClose } = props;

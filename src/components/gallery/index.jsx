@@ -2,7 +2,7 @@ import React, { useMemo, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import PageContainer from '@/components/page-container';
 import Animation from '@/components/animation';
-import Element from '@/components/element';
+import Element from '@/elements';
 import { preparePages } from '@/utils/prepare';
 import * as animation from '@/utils/animation';
 

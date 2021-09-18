@@ -1,15 +1,6 @@
 import React from 'react';
 import { prepareElement } from '@/utils/prepare';
-
-import ImageProp from '@/components/elements/image/prop';
-import TextProp from '@/components/elements/text/prop';
-import IconProp from '@/components/elements/icon/prop';
-
-const PROP_FORMS = {
-  image: ImageProp,
-  text: TextProp,
-  icon: IconProp,
-};
+import { PROP_FORMS } from '@/elements';
 
 export default (props) => {
   const { data, pageIdx, elementIdx, onChange } = props;
