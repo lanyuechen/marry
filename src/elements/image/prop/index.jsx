@@ -65,7 +65,7 @@ export default (props) => {
             </GridSelect.Option>
             {Object.entries(CLIP_PATH).map(([key, path]) => (
               <GridSelect.Option key={key}>
-                <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <svg viewBox="0 0 1024 1024" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1">
                   <path d={path} />
                 </svg>
               </GridSelect.Option>
