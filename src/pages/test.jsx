@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 
 import GridSelect from '@/components/grid-select';
 import { StopOutlined } from '@ant-design/icons';
+import Frame from '@/components/frame';
+import Lens from '@/components/lens';
+import CLIP_PATH from '@/assets/clip-path.json';
 
 const FRAMES = ['burrs'];
 
@@ -14,37 +17,35 @@ export default () => {
   return (
     <div>
       <GridSelect
-        column={5}
+        column={2}
       >
         <GridSelect.Option key="">
           <StopOutlined style={{fontSize: 18}} />
         </GridSelect.Option>
         {FRAMES.map(frame => (
-          <GridSelect.Option key={frame}>
-            {frame}
+          <GridSelect.Option key={frame} style={{height: 120}}>
+            <Lens scale={0.5}>
+              <Frame type={frame} />
+            </Lens>
           </GridSelect.Option>
         ))}
       </GridSelect>
       
-      <GridSelect
-        column={2}
-        style={{width: 200}}
-        value={selected}
-        onChange={handleChange}
+      {/* <GridSelect
+        value={''}
+        column={5}
       >
-        <GridSelect.Option style={{width: '20%'}} key="a">test</GridSelect.Option>
-        <GridSelect.Option style={{width: '20%'}} key="b">test</GridSelect.Option>
-        <GridSelect.Option style={{width: '20%'}} key="c">test</GridSelect.Option>
-        <GridSelect.Option style={{width: '20%'}} key="d">test</GridSelect.Option>
-        <GridSelect.Option style={{width: '20%'}} key="e">test</GridSelect.Option>
-        <GridSelect.Option style={{width: '20%'}} key="f">test</GridSelect.Option>
-        <GridSelect.Option style={{width: '20%'}} key="g">test</GridSelect.Option>
-        <GridSelect.Option style={{width: '20%'}} key="h">test</GridSelect.Option>
-        <GridSelect.Option style={{width: '20%'}} key="i">test</GridSelect.Option>
-        <GridSelect.Option style={{width: '20%'}} key="j">test</GridSelect.Option>
-        <GridSelect.Option style={{width: '20%'}} key="k">test</GridSelect.Option>
-        <GridSelect.Option style={{width: '20%'}} key="l">test</GridSelect.Option>
-      </GridSelect>
+        <GridSelect.Option key="">
+          <StopOutlined style={{fontSize: 18}} />
+        </GridSelect.Option>
+        {Object.entries(CLIP_PATH).map(([key, path]) => (
+          <GridSelect.Option key={key}>
+            <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" version="1.1">
+              <path d={path} />
+            </svg>
+          </GridSelect.Option>
+        ))}
+      </GridSelect> */}
     </div>
   );
 }

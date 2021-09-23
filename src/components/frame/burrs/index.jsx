@@ -25,7 +25,7 @@ export default (props) => {
         }}
       />
       {children}
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <svg width={0} height={0} xmlns="http://www.w3.org/2000/svg" version="1.1">
         <filter id={`wav-${id}`}>
           <feTurbulence x="0" y="0" baseFrequency="0.02" numOctaves="5" seed="1" />
           <feDisplacementMap in="SourceGraphic" scale="20" />

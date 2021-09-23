@@ -2,6 +2,8 @@ import React from 'react';
 import { Card, Form, Slider } from 'antd';
 import { StopOutlined } from '@ant-design/icons';
 import GridSelect from '@/components/grid-select';
+import Frame from '@/components/frame';
+import Lens from '@/components/lens';
 import CLIP_PATH from '@/assets/clip-path.json';
 
 import ImageCrop from './image-crop';
@@ -30,15 +32,17 @@ export default (props) => {
         <Form.Item label="边框">
           <GridSelect
             value={element.frame?.type}
-            column={5}
+            column={2}
             onChange={(val) => onChange('frame.type', val)}
           >
             <GridSelect.Option key="">
               <StopOutlined style={{fontSize: 18}} />
             </GridSelect.Option>
             {FRAMES.map(frame => (
-              <GridSelect.Option key={frame}>
-                {frame}
+              <GridSelect.Option key={frame} style={{height: 120}}>
+                <Lens scale={0.5}>
+                  <Frame type={frame} />
+                </Lens>
               </GridSelect.Option>
             ))}
           </GridSelect>
