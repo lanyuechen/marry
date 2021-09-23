@@ -47,7 +47,7 @@ export default (props) => {
           <Slider
             value={element.clip?.scale}
             min={0.1}
-            max={2}
+            max={3}
             step={0.1}
             onChange={val => onChange('clip.scale', val)}
           />

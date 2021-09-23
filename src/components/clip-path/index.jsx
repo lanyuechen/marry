@@ -24,7 +24,7 @@ export default (props) => {
     const s = fitWidth / vb[2];
 
     return `translate(${left}, ${top}) scale(${s})`;
-  }, []);
+  }, [scale]);
 
   return (
     <>
