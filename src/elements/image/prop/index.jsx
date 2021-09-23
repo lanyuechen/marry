@@ -1,11 +1,10 @@
 import React from 'react';
 import { Card, Form, Slider } from 'antd';
 import { StopOutlined } from '@ant-design/icons';
-import ImageCrop from './image-crop';
-
+import GridSelect from '@/components/grid-select';
 import CLIP_PATH from '@/assets/clip-path.json';
 
-import style from './style.less';
+import ImageCrop from './image-crop';
 
 const FRAMES = ['burrs'];
 
@@ -29,63 +28,45 @@ export default (props) => {
           />
         </Form.Item>
         <Form.Item label="边框">
-          <Card>
-            <Card.Grid
-              className={style.grid}
-              style={{
-                background: !element.frame?.type ? '#f0f0f0' : '',
-              }}
-              onClick={() => onChange('clip.type', '')}
-            >
+          <GridSelect
+            value={element.frame?.type}
+            column={5}
+            onChange={(val) => onChange('frame.type', val)}
+          >
+            <GridSelect.Option key="">
               <StopOutlined style={{fontSize: 18}} />
-            </Card.Grid>
+            </GridSelect.Option>
             {FRAMES.map(frame => (
-              <Card.Grid
-                key={frame}
-                className={style.grid}
-                style={{
-                  background: frame === element.frame.type ? '#f0f0f0' : '',
-                }}
-                onClick={() => onChange('frame.type', frame)}
-              >
+              <GridSelect.Option key={frame}>
                 {frame}
-              </Card.Grid>
+              </GridSelect.Option>
             ))}
-          </Card>
+          </GridSelect>
         </Form.Item>
         <Form.Item label="裁剪">
           <Slider
-            value={element.clip.scale}
+            value={element.clip?.scale}
             min={0.1}
             max={2}
             step={0.1}
             onChange={val => onChange('clip.scale', val)}
           />
-          <Card>
-            <Card.Grid
-              className={style.grid}
-              style={{
-                background: !element.clip?.type ? '#f0f0f0' : '',
-              }}
-              onClick={() => onChange('clip.type', '')}
-            >
+          <GridSelect
+            value={element.clip?.type}
+            column={5}
+            onChange={(val) => onChange('clip.type', val)}
+          >
+            <GridSelect.Option key="">
               <StopOutlined style={{fontSize: 18}} />
-            </Card.Grid>
+            </GridSelect.Option>
             {Object.entries(CLIP_PATH).map(([key, path]) => (
-              <Card.Grid
-                key={key}
-                className={style.grid}
-                style={{
-                  background: key === element.clip.type ? '#f0f0f0' : ''
-                }}
-                onClick={() => onChange('clip.type', key)}
-              >
+              <GridSelect.Option key={key}>
                 <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" version="1.1">
                   <path d={path} />
                 </svg>
-              </Card.Grid>
+              </GridSelect.Option>
             ))}
-          </Card>
+          </GridSelect>
         </Form.Item>
       </Form>
     </Card>

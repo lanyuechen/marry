@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 
 import GridSelect from '@/components/grid-select';
+import { StopOutlined } from '@ant-design/icons';
+
+const FRAMES = ['burrs'];
 
 export default () => {
   const [selected, setSelected] = useState('a');
@@ -11,6 +14,20 @@ export default () => {
   return (
     <div>
       <GridSelect
+        column={5}
+      >
+        <GridSelect.Option key="">
+          <StopOutlined style={{fontSize: 18}} />
+        </GridSelect.Option>
+        {FRAMES.map(frame => (
+          <GridSelect.Option key={frame}>
+            {frame}
+          </GridSelect.Option>
+        ))}
+      </GridSelect>
+      
+      <GridSelect
+        column={2}
         style={{width: 200}}
         value={selected}
         onChange={handleChange}
