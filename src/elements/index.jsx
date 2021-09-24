@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import ClipPath from '@/components/clip-path';
 import Frame from '@/components/frame';
 
-const ELEMENTS = {
+export const ELEMENTS = {
   image: require('./image').default,
   text: require('./text').default,
   icon: require('./icon').default,

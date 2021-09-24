@@ -2,13 +2,11 @@ import React from 'react';
 import { Card, Form, Slider } from 'antd';
 import { StopOutlined } from '@ant-design/icons';
 import GridSelect from '@/components/grid-select';
-import Frame from '@/components/frame';
+import Frame, { FRAMES } from '@/components/frame';
 import Lens from '@/components/lens';
 import CLIP_PATH from '@/assets/clip-path.json';
 
 import ImageCrop from './image-crop';
-
-const FRAMES = ['burrs'];
 
 export default (props) => {
   const { element, onChange } = props;
@@ -30,6 +28,13 @@ export default (props) => {
           />
         </Form.Item>
         <Form.Item label="边框">
+          <Slider
+            value={element.clip?.scale}
+            min={0}
+            max={1}
+            step={0.01}
+            onChange={val => onChange('frame.borderRadius', val)}
+          />
           <GridSelect
             value={element.frame?.type}
             column={2}
@@ -38,10 +43,10 @@ export default (props) => {
             <GridSelect.Option key="">
               <StopOutlined style={{fontSize: 18}} />
             </GridSelect.Option>
-            {FRAMES.map(frame => (
-              <GridSelect.Option key={frame} style={{height: 120}}>
+            {Object.keys(FRAMES).map((key) => (
+              <GridSelect.Option key={key} style={{height: 120}}>
                 <Lens scale={0.5}>
-                  <Frame type={frame} />
+                  <Frame type={key} />
                 </Lens>
               </GridSelect.Option>
             ))}

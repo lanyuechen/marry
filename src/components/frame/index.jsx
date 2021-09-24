@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react';
 
-import Burrs from './burrs';
-const Frames = {
-  burrs: Burrs,
+export const FRAMES = {
+  rect: require('./rect').default,
+  burrs: require('./burrs').default,
 }
 
 export default (props) => {
   const { children, type, ...otherProps } = props;
 
-  const Frame = useMemo(() => Frames[type], [type]);
+  const Frame = useMemo(() => FRAMES[type], [type]);
 
   if (!Frame) {
     return children;

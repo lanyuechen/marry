@@ -12,7 +12,7 @@ export default (props) => {
   const id = useMemo(() => uuid());
   return (
     <div
-      className={style.frameContainer}
+      className={style.burrsFrame}
       style={{
         padding: borderWidth / 2
       }}
