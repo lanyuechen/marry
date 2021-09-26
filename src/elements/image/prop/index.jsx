@@ -29,7 +29,7 @@ export default (props) => {
         </Form.Item>
         <Form.Item label="边框">
           <Slider
-            value={element.clip?.borderRadius}
+            value={element.frame?.borderRadius}
             min={0}
             max={1}
             step={0.01}

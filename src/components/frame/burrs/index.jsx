@@ -11,12 +11,7 @@ export default (props) => {
   const { children, borderWidth = 24, borderRadius = 0 } = props;
   const id = useMemo(() => uuid());
   return (
-    <div
-      className={style.burrsFrame}
-      style={{
-        padding: borderWidth / 2
-      }}
-    >
+    <div className={style.burrsFrame}>
       <div
         className={style.frame}
         style={{
@@ -25,7 +20,15 @@ export default (props) => {
           filter: `url(#wav-${id})`,
         }}
       />
-      {children}
+      <div
+        className={style.frameContent}
+        style={{
+          borderWidth: borderWidth / 2,
+          borderRadius: `${borderRadius * 100}%`,
+        }}
+      >
+        {children}
+      </div>
       <svg width={0} height={0} xmlns="http://www.w3.org/2000/svg" version="1.1">
         <filter id={`wav-${id}`}>
           <feTurbulence x="0" y="0" baseFrequency="0.02" numOctaves="5" seed="1" />
