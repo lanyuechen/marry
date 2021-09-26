@@ -8,7 +8,7 @@ import { uuid } from '@/utils/utils';
 import style from './style.less';
 
 export default (props) => {
-  const { children, borderWidth = 24 } = props;
+  const { children, borderWidth = 24, borderRadius = 0 } = props;
   const id = useMemo(() => uuid());
   return (
     <div
@@ -21,6 +21,7 @@ export default (props) => {
         className={style.frame}
         style={{
           borderWidth,
+          borderRadius: `${borderRadius * 100}%`,
           filter: `url(#wav-${id})`,
         }}
       />

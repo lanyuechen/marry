@@ -22,7 +22,12 @@ export default () => {
         {Object.keys(FRAMES).map(key => (
           <GridSelect.Option key={key} style={{height: 120}}>
             <Lens scale={0.5}>
-              <Frame type={key} />
+              <Frame type={key}>
+                <p>xxx</p>
+                <p>xxx</p>
+                <p>xxx</p>
+                <p>xxx</p>
+              </Frame>
             </Lens>
           </GridSelect.Option>
         ))}
